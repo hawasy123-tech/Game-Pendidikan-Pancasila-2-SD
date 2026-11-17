@@ -1,0 +1,2440 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Petualangan Anak Pancasila - Kelas 2 SD (Kurikulum Merdeka)</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts: Fredoka & Nunito for High Legibility Child-Friendly Typography -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --font-heading: 'Fredoka', sans-serif;
+            --font-body: 'Nunito', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: linear-gradient(180deg, #7dd3fc 0%, #bae6fd 45%, #fef9c3 85%, #bbf7d0 100%);
+            min-height: 100vh;
+            overflow-x: hidden;
+            user-select: none;
+        }
+
+        h1, h2, h3, .font-heading {
+            font-family: var(--font-heading);
+            letter-spacing: 0.02em;
+        }
+
+        /* 3D Tactile Kid-Friendly Buttons */
+        .btn-3d-yellow {
+            background: #facc15;
+            border: 3px solid #ca8a04;
+            box-shadow: 0 6px 0 #ca8a04, 0 8px 15px rgba(0,0,0,0.12);
+            transition: all 0.15s ease;
+        }
+        .btn-3d-yellow:hover {
+            background: #fde047;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #ca8a04, 0 12px 18px rgba(0,0,0,0.15);
+        }
+        .btn-3d-yellow:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #ca8a04;
+        }
+
+        .btn-3d-blue {
+            background: #38bdf8;
+            border: 3px solid #0284c7;
+            box-shadow: 0 6px 0 #0284c7, 0 8px 15px rgba(0,0,0,0.12);
+            transition: all 0.15s ease;
+        }
+        .btn-3d-blue:hover {
+            background: #7dd3fc;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #0284c7, 0 12px 18px rgba(0,0,0,0.15);
+        }
+        .btn-3d-blue:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #0284c7;
+        }
+
+        .btn-3d-green {
+            background: #4ade80;
+            border: 3px solid #16a34a;
+            box-shadow: 0 6px 0 #16a34a, 0 8px 15px rgba(0,0,0,0.12);
+            transition: all 0.15s ease;
+        }
+        .btn-3d-green:hover {
+            background: #86efac;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #16a34a, 0 12px 18px rgba(0,0,0,0.15);
+        }
+        .btn-3d-green:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #16a34a;
+        }
+
+        .btn-3d-rose {
+            background: #fb7185;
+            border: 3px solid #e11d48;
+            box-shadow: 0 6px 0 #e11d48, 0 8px 15px rgba(0,0,0,0.12);
+            transition: all 0.15s ease;
+        }
+        .btn-3d-rose:hover {
+            background: #fda4af;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #e11d48, 0 12px 18px rgba(0,0,0,0.15);
+        }
+        .btn-3d-rose:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #e11d48;
+        }
+
+        .btn-3d-purple {
+            background: #c084fc;
+            border: 3px solid #9333ea;
+            box-shadow: 0 6px 0 #9333ea, 0 8px 15px rgba(0,0,0,0.12);
+            transition: all 0.15s ease;
+        }
+        .btn-3d-purple:hover {
+            background: #d8b4fe;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 0 #9333ea, 0 12px 18px rgba(0,0,0,0.15);
+        }
+        .btn-3d-purple:active {
+            transform: translateY(4px);
+            box-shadow: 0 2px 0 #9333ea;
+        }
+
+        /* Option Choice Buttons */
+        .option-btn {
+            background: #ffffff;
+            border: 4px solid #cbd5e1;
+            box-shadow: 0 6px 0 #cbd5e1;
+            transition: all 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+        .option-btn:hover:not(:disabled) {
+            border-color: #38bdf8;
+            background: #f0f9ff;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 0 #38bdf8;
+        }
+        .option-btn:active:not(:disabled) {
+            transform: translateY(3px);
+            box-shadow: 0 2px 0 #38bdf8;
+        }
+        .option-btn.correct-choice {
+            background: #dcfce7 !important;
+            border-color: #16a34a !important;
+            box-shadow: 0 6px 0 #16a34a !important;
+            color: #14532d !important;
+        }
+        .option-btn.wrong-choice {
+            background: #ffe4e6 !important;
+            border-color: #e11d48 !important;
+            box-shadow: 0 6px 0 #e11d48 !important;
+            color: #881337 !important;
+        }
+
+        /* Card Container */
+        .kid-card {
+            background: #ffffff;
+            border: 5px solid #38bdf8;
+            box-shadow: 0 12px 0 #0284c7, 0 18px 30px rgba(0,0,0,0.12);
+            border-radius: 2rem;
+        }
+
+        /* Floating animations */
+        @keyframes floatSlow {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(2deg); }
+        }
+        .animate-float {
+            animation: floatSlow 3.2s ease-in-out infinite;
+        }
+
+        @keyframes popIn {
+            0% { transform: scale(0.85); opacity: 0; }
+            70% { transform: scale(1.03); opacity: 1; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        .animate-pop {
+            animation: popIn 0.35s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #e0f2fe;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+
+        /* Dynamic Font Scaling for Accessibility/Projector Mode */
+        .font-scale-normal .question-text {
+            font-size: clamp(1.35rem, 2.8vw, 1.85rem);
+            line-height: 1.45;
+        }
+        .font-scale-normal .option-text {
+            font-size: clamp(1.15rem, 2.2vw, 1.45rem);
+            line-height: 1.35;
+        }
+        .font-scale-large .question-text {
+            font-size: clamp(1.65rem, 3.4vw, 2.25rem);
+            line-height: 1.45;
+        }
+        .font-scale-large .option-text {
+            font-size: clamp(1.35rem, 2.7vw, 1.75rem);
+            line-height: 1.4;
+        }
+    </style>
+</head>
+<body class="font-scale-normal text-slate-800 pb-12" id="app-body">
+
+    <!-- Decorative Floating Clouds & Sun Background -->
+    <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+        <div class="absolute top-4 left-4 text-5xl sm:text-7xl opacity-80 animate-float">☀️</div>
+        <div class="absolute top-10 right-8 text-5xl sm:text-6xl opacity-75 animate-float" style="animation-delay: 1s;">☁️</div>
+        <div class="absolute top-28 left-1/4 text-4xl sm:text-5xl opacity-60 animate-float" style="animation-delay: 2s;">☁️</div>
+        <div class="absolute bottom-4 left-6 text-4xl sm:text-5xl opacity-75">🌻</div>
+        <div class="absolute bottom-4 right-6 text-4xl sm:text-5xl opacity-75">🌳</div>
+    </div>
+
+    <!-- TOP NAVIGATION BAR -->
+    <header class="relative z-20 max-w-5xl mx-auto pt-3 px-3 sm:px-6">
+        <div class="bg-white/95 backdrop-blur border-4 border-sky-400 rounded-3xl px-4 py-3 shadow-lg flex flex-wrap items-center justify-between gap-2">
+            <!-- Brand Title -->
+            <div class="flex items-center gap-2 sm:gap-3 cursor-pointer" onclick="confirmReturnHome()">
+                <div class="w-11 h-11 sm:w-13 sm:h-13 rounded-2xl bg-amber-300 border-3 border-amber-500 flex items-center justify-center text-2xl sm:text-3xl shadow">
+                    🦅
+                </div>
+                <div>
+                    <span class="bg-rose-500 text-white text-xs sm:text-sm font-extrabold px-2.5 py-0.5 rounded-full uppercase tracking-wider">Kelas 2 SD • Kurikulum Merdeka</span>
+                    <h1 class="text-lg sm:text-2xl font-bold text-sky-900 leading-tight">Petualangan Anak Pancasila</h1>
+                </div>
+            </div>
+
+            <!-- Action Controls: Font Size, Audio Toggle, Teacher Bank Soal -->
+            <div class="flex items-center gap-2 flex-wrap">
+                <button onclick="toggleFontSize()" id="btn-font-size" title="Ubah Ukuran Huruf (Layar Proyektor / HP)" class="btn-3d-yellow px-3 py-1.5 rounded-2xl font-extrabold text-amber-950 text-sm sm:text-base flex items-center gap-1">
+                    <span>🔍</span> <span id="font-size-label">Huruf: Besar</span>
+                </button>
+
+                <button onclick="toggleSound()" id="btn-sound" title="Nyalakan/Matikan Efek Suara" class="btn-3d-blue px-3 py-1.5 rounded-2xl font-extrabold text-sky-950 text-sm sm:text-base flex items-center gap-1">
+                    <span id="sound-icon">🔊</span> <span id="sound-label" class="hidden sm:inline">Suara ON</span>
+                </button>
+
+                <button onclick="showView('teacher')" id="btn-teacher" class="btn-3d-purple px-3.5 py-1.5 rounded-2xl font-extrabold text-purple-950 text-sm sm:text-base flex items-center gap-1.5">
+                    <span>📋</span> <span>Bank 50 Soal (Guru)</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT CONTAINER -->
+    <main class="relative z-10 max-w-5xl mx-auto mt-5 px-3 sm:px-6">
+
+        <!-- ==========================================
+             VIEW 1: HOME / WELCOME SCREEN
+             ========================================== -->
+        <section id="view-home" class="kid-card p-5 sm:p-8 animate-pop">
+            <div class="text-center max-w-3xl mx-auto">
+                <div class="inline-flex items-center gap-2 bg-amber-100 border-2 border-amber-400 text-amber-900 font-extrabold px-4 py-1.5 rounded-full text-sm sm:text-base mb-3">
+                    <span>🌟</span> Pendidikan Pancasila Fase A • Kelas 2 SD <span>🌟</span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-bold text-sky-900 mb-2">
+                    Aku Patuh Aturan & Aku Berperilaku Pancasila!
+                </h2>
+                <p class="text-base sm:text-xl text-slate-600 font-bold mb-6">
+                    Halo Anak Hebat! Yuk, kita bermain sambil belajar menjadi anak yang tertib, disiplin, dan mengamalkan Pancasila setiap hari!
+                </p>
+            </div>
+
+            <!-- Step 1: Student Identity & Avatar Selection -->
+            <div class="bg-sky-50 border-4 border-sky-200 rounded-3xl p-4 sm:p-6 mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-5 items-center">
+                    <div>
+                        <label for="input-student-name" class="block text-lg sm:text-xl font-extrabold text-sky-900 mb-2">
+                            ✏️ Siapa Nama Panggilanmu?
+                        </label>
+                        <input
+                            type="text"
+                            id="input-student-name"
+                            placeholder="Ketik namamu di sini (misal: Budi / Siti)..."
+                            maxlength="25"
+                            class="w-full px-4 py-3.5 text-lg sm:text-xl font-extrabold text-sky-950 bg-white border-4 border-sky-300 rounded-2xl focus:outline-none focus:border-amber-400 shadow-inner"
+                        />
+                        <div class="mt-3 flex items-center gap-2">
+                            <input type="checkbox" id="chk-auto-tts" class="w-5 h-5 accent-sky-600 rounded cursor-pointer" />
+                            <label for="chk-auto-tts" class="text-base sm:text-lg font-bold text-slate-700 cursor-pointer">
+                                🗣️ Bacakan soal secara otomatis saat soal muncul
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Avatar Picker -->
+                    <div>
+                        <p class="text-lg sm:text-xl font-extrabold text-sky-900 mb-2">
+                            🧒 Pilih Karakter Jagoanmu:
+                        </p>
+                        <div class="grid grid-cols-4 gap-2 sm:gap-3" id="avatar-grid">
+                            <!-- Filled by JS -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 2: Filter Level / Dimension Optional -->
+            <div class="bg-amber-50 border-4 border-amber-200 rounded-3xl p-4 sm:p-5 mb-6">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                    <div>
+                        <h3 class="text-lg sm:text-xl font-bold text-amber-950 flex items-center gap-2">
+                            <span>⚙️</span> Pengaturan Soal (Bisa Dipilih Siswa / Guru):
+                        </h3>
+                        <p class="text-sm sm:text-base text-amber-800 font-bold">
+                            Pilih tingkat kesulitan atau jenis soal yang ingin dimainkan:
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-2">
+                        <select id="select-difficulty" class="px-3 py-2 rounded-xl border-3 border-amber-400 bg-white font-extrabold text-amber-950 text-base cursor-pointer">
+                            <option value="ALL">🌈 Semua Level (Mudah & Menengah)</option>
+                            <option value="Mudah">🟢 Hanya Level Mudah (25 Soal)</option>
+                            <option value="Menengah">🟡 Hanya Level Menengah (25 Soal)</option>
+                        </select>
+                        <select id="select-dimension" class="px-3 py-2 rounded-xl border-3 border-amber-400 bg-white font-extrabold text-amber-950 text-base cursor-pointer">
+                            <option value="ALL">🧠💖 Kognitif & Perilaku (Semua)</option>
+                            <option value="Kognitif">🧠 Hanya Kognitif (Pengetahuan)</option>
+                            <option value="Perilaku">💖 Hanya Perilaku (Studi Kasus Sikap)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Step 3: Choose Game Package / Mode -->
+            <h3 class="text-xl sm:text-2xl font-bold text-center text-sky-950 mb-4">
+                🎮 Pilih Petualangan Kuis yang Ingin Kamu Mainkan:
+            </h3>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                <!-- Mode 1: All 50 Questions -->
+                <button onclick="startGame('ALL_50')" class="btn-3d-yellow p-5 rounded-3xl text-left flex items-center gap-4 group">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/90 border-3 border-amber-500 flex items-center justify-center text-4xl sm:text-5xl shrink-0 group-hover:scale-110 transition">
+                        🏆
+                    </div>
+                    <div>
+                        <span class="inline-block bg-amber-800 text-white text-xs font-extrabold px-2.5 py-0.5 rounded-full mb-1">LENGKAP • 50 SOAL</span>
+                        <h4 class="text-xl sm:text-2xl font-bold text-amber-950">Petualangan Lengkap 50 Soal</h4>
+                        <p class="text-sm sm:text-base font-bold text-amber-900 mt-0.5">
+                            Mainkan seluruh 50 soal (Aku Patuh Aturan & Aku Berperilaku Pancasila). Bisa lompat nomor soal!
+                        </p>
+                    </div>
+                </button>
+
+                <!-- Mode 2: Quick 10 Random Questions -->
+                <button onclick="startGame('QUICK_10')" class="btn-3d-rose p-5 rounded-3xl text-left flex items-center gap-4 group">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/90 border-3 border-rose-600 flex items-center justify-center text-4xl sm:text-5xl shrink-0 group-hover:scale-110 transition">
+                        ⚡
+                    </div>
+                    <div>
+                        <span class="inline-block bg-rose-900 text-white text-xs font-extrabold px-2.5 py-0.5 rounded-full mb-1">CEPAT & SERU • 10 SOAL ACAK</span>
+                        <h4 class="text-xl sm:text-2xl font-bold text-white drop-shadow-sm">Mode Kuis Kilat (10 Soal)</h4>
+                        <p class="text-sm sm:text-base font-bold text-rose-950 mt-0.5">
+                            Latihan cepat 10 soal pilihan acak dari kedua topik. Cocok untuk pemanasan di kelas!
+                        </p>
+                    </div>
+                </button>
+
+                <!-- Mode 3: Topic 1 (25 Questions) -->
+                <button onclick="startGame('TOPIC_ATURAN')" class="btn-3d-blue p-5 rounded-3xl text-left flex items-center gap-4 group">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/90 border-3 border-sky-600 flex items-center justify-center text-4xl sm:text-5xl shrink-0 group-hover:scale-110 transition">
+                        🏡
+                    </div>
+                    <div>
+                        <span class="inline-block bg-sky-900 text-white text-xs font-extrabold px-2.5 py-0.5 rounded-full mb-1">TOPIK 1 • 25 SOAL</span>
+                        <h4 class="text-xl sm:text-2xl font-bold text-sky-950">Paket 1: Aku Patuh Aturan</h4>
+                        <p class="text-sm sm:text-base font-bold text-sky-900 mt-0.5">
+                            Aturan di rumah, aturan di sekolah, manfaat patuh aturan, & akibat melanggar aturan.
+                        </p>
+                    </div>
+                </button>
+
+                <!-- Mode 4: Topic 2 (25 Questions) -->
+                <button onclick="startGame('TOPIC_PANCASILA')" class="btn-3d-green p-5 rounded-3xl text-left flex items-center gap-4 group">
+                    <div class="w-16 h-16 sm:w-20 sm:h-20 rounded-2xl bg-white/90 border-3 border-green-600 flex items-center justify-center text-4xl sm:text-5xl shrink-0 group-hover:scale-110 transition">
+                        🦅
+                    </div>
+                    <div>
+                        <span class="inline-block bg-green-900 text-white text-xs font-extrabold px-2.5 py-0.5 rounded-full mb-1">TOPIK 2 • 25 SOAL</span>
+                        <h4 class="text-xl sm:text-2xl font-bold text-green-950">Paket 2: Aku Berperilaku Pancasila</h4>
+                        <p class="text-sm sm:text-base font-bold text-green-900 mt-0.5">
+                            Lambang Garuda Pancasila & contoh perilaku baik Sila ke-1 sampai Sila ke-5.
+                        </p>
+                    </div>
+                </button>
+            </div>
+
+            <!-- Curriculum Summary Footnote -->
+            <div class="mt-6 pt-4 border-t-2 border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs sm:text-sm font-bold text-slate-500">
+                <div>✅ Dirancang oleh Instructional Designer • Kurikulum Merdeka Fase A (Kelas 2 SD)</div>
+                <div>📊 25 Soal Mudah + 25 Soal Menengah | 🧠 25 Soal Kognitif + 💖 25 Soal Perilaku</div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             VIEW 2: QUIZ GAMEPLAY SCREEN
+             ========================================== -->
+        <section id="view-quiz" class="hidden">
+            <!-- Top Status Bar (Player Info, Score, Stars, Streak, Question Map) -->
+            <div class="bg-white border-4 border-sky-400 rounded-3xl p-3 sm:p-4 mb-4 shadow-md">
+                <div class="flex flex-wrap items-center justify-between gap-3">
+                    <!-- Player badge -->
+                    <div class="flex items-center gap-2.5">
+                        <div id="quiz-player-avatar" class="w-12 h-12 rounded-2xl bg-amber-100 border-3 border-amber-400 flex items-center justify-center text-3xl">
+                            👦
+                        </div>
+                        <div>
+                            <div id="quiz-player-name" class="text-base sm:text-lg font-extrabold text-sky-950 leading-none">Anak Hebat</div>
+                            <div id="quiz-mode-title" class="text-xs sm:text-sm font-bold text-sky-600 mt-0.5">Paket 50 Soal</div>
+                        </div>
+                    </div>
+
+                    <!-- Live Stats Counters -->
+                    <div class="flex items-center gap-2 sm:gap-3 flex-wrap">
+                        <!-- Streak Counter -->
+                        <div id="streak-badge" class="hidden bg-orange-100 border-2 border-orange-400 text-orange-800 px-3 py-1.5 rounded-2xl font-extrabold text-sm sm:text-base flex items-center gap-1 animate-bounce">
+                            <span>🔥</span> <span id="streak-count">0</span>x Beruntun!
+                        </div>
+
+                        <!-- Correct Stars -->
+                        <div class="bg-amber-100 border-3 border-amber-400 px-3.5 py-1.5 rounded-2xl flex items-center gap-1.5">
+                            <span class="text-xl sm:text-2xl">⭐</span>
+                            <div>
+                                <div class="text-[11px] font-extrabold text-amber-800 uppercase leading-none">Bintang</div>
+                                <div id="quiz-stars" class="text-base sm:text-xl font-black text-amber-950 leading-tight">0</div>
+                            </div>
+                        </div>
+
+                        <!-- Automatic Score (0-100) -->
+                        <div class="bg-emerald-100 border-3 border-emerald-400 px-3.5 py-1.5 rounded-2xl flex items-center gap-1.5">
+                            <span class="text-xl sm:text-2xl">💯</span>
+                            <div>
+                                <div class="text-[11px] font-extrabold text-emerald-800 uppercase leading-none">Skor Otomatis</div>
+                                <div id="quiz-score" class="text-base sm:text-xl font-black text-emerald-950 leading-tight">0</div>
+                            </div>
+                        </div>
+
+                        <!-- Open Question Grid Drawer -->
+                        <button onclick="toggleQuestionMap()" class="btn-3d-yellow px-3.5 py-2 rounded-2xl font-extrabold text-amber-950 text-sm sm:text-base flex items-center gap-1.5">
+                            <span>🔢</span> <span>Daftar Nomor</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Progress Bar -->
+                <div class="mt-3">
+                    <div class="flex justify-between text-xs sm:text-sm font-extrabold text-sky-900 mb-1">
+                        <span id="progress-text">Soal 1 dari 50</span>
+                        <span id="answered-count-text">Terjawab: 0/50</span>
+                    </div>
+                    <div class="w-full h-4 bg-sky-100 rounded-full overflow-hidden border-2 border-sky-300 p-0.5">
+                        <div id="progress-bar-fill" class="h-full bg-gradient-to-r from-amber-400 to-emerald-400 rounded-full transition-all duration-300" style="width: 2%;"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Question Map Drawer (Collapsible) -->
+            <div id="question-map-drawer" class="hidden bg-white border-4 border-amber-400 rounded-3xl p-4 mb-4 shadow-lg animate-pop">
+                <div class="flex items-center justify-between mb-3">
+                    <h3 class="text-lg sm:text-xl font-bold text-amber-950">🔢 Pilih Nomor Soal untuk Melompat:</h3>
+                    <button onclick="toggleQuestionMap()" class="px-3 py-1 bg-rose-100 text-rose-800 font-extrabold rounded-xl border-2 border-rose-300">
+                        ✖ Tutup
+                    </button>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-extrabold mb-3">
+                    <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-emerald-400 inline-block"></span> Benar</span>
+                    <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-rose-400 inline-block"></span> Belum Tepat</span>
+                    <span class="inline-flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-slate-200 inline-block"></span> Belum Dijawab</span>
+                </div>
+                <div id="question-map-grid" class="grid grid-cols-5 sm:grid-cols-10 gap-2 max-h-60 overflow-y-auto p-1">
+                    <!-- Buttons injected by JS -->
+                </div>
+            </div>
+
+            <!-- MAIN QUESTION CARD -->
+            <div class="kid-card p-5 sm:p-8 relative">
+                <!-- Question Metadata Badges -->
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-4 pb-3 border-b-2 border-sky-100">
+                    <div class="flex flex-wrap items-center gap-2">
+                        <span id="q-badge-number" class="bg-sky-600 text-white font-black px-3.5 py-1 rounded-full text-sm sm:text-base shadow-sm">
+                            SOAL #1
+                        </span>
+                        <span id="q-badge-theme" class="bg-sky-100 border-2 border-sky-300 text-sky-900 font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm">
+                            🏡 Aku Patuh Aturan
+                        </span>
+                        <span id="q-badge-difficulty" class="bg-emerald-100 border-2 border-emerald-400 text-emerald-900 font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm">
+                            🟢 Level: Mudah
+                        </span>
+                        <span id="q-badge-dimension" class="bg-purple-100 border-2 border-purple-400 text-purple-900 font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm">
+                            💖 Sikap Perilaku
+                        </span>
+                    </div>
+
+                    <!-- Read Aloud Button (Web Speech API) -->
+                    <button onclick="readCurrentQuestionAloud()" class="btn-3d-yellow px-4 py-2 rounded-2xl font-extrabold text-amber-950 text-sm sm:text-base flex items-center gap-2 shrink-0">
+                        <span class="text-xl">🔊</span> <span>Bacakan Soal</span>
+                    </button>
+                </div>
+
+                <!-- Visual Illustration Emoji & Question Text -->
+                <div class="flex flex-col md:flex-row items-center gap-5 sm:gap-6 my-4">
+                    <div id="q-emoji-box" class="w-28 h-28 sm:w-36 sm:h-36 rounded-3xl bg-gradient-to-br from-sky-100 via-amber-50 to-emerald-100 border-4 border-sky-300 flex items-center justify-center text-5xl sm:text-6xl shadow-inner shrink-0 animate-float">
+                        🛏️☀️
+                    </div>
+                    <div class="flex-1 text-center md:text-left">
+                        <div id="q-subtopic" class="text-xs sm:text-sm font-extrabold uppercase tracking-wider text-sky-600 mb-1">
+                            Subtopik: Aturan Pagi Hari di Rumah
+                        </div>
+                        <p id="q-text" class="question-text font-extrabold text-slate-800">
+                            Memuat pertanyaan...
+                        </p>
+                    </div>
+                </div>
+
+                <!-- 3 Choices (A, B, C) tailored for Grade 2 SD -->
+                <div id="options-container" class="grid grid-cols-1 gap-3.5 sm:gap-4 mt-6">
+                    <!-- Option Buttons generated by JS -->
+                </div>
+
+                <!-- Immediate Positive Feedback Box (Hidden until answered) -->
+                <div id="feedback-box" class="hidden mt-6 p-5 rounded-3xl border-4 animate-pop">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="flex items-start gap-3.5">
+                            <div id="feedback-icon" class="text-4xl sm:text-5xl shrink-0">🌟</div>
+                            <div>
+                                <h4 id="feedback-title" class="text-xl sm:text-2xl font-bold">Hebat Sekali! Jawabanmu Benar!</h4>
+                                <p id="feedback-explanation" class="text-base sm:text-lg font-bold mt-1 leading-snug"></p>
+                            </div>
+                        </div>
+                        <button onclick="nextQuestion()" id="btn-next-after-feedback" class="btn-3d-green px-6 py-3.5 rounded-2xl font-extrabold text-green-950 text-lg sm:text-xl shrink-0 w-full sm:w-auto flex items-center justify-center gap-2">
+                            <span>Soal Berikutnya</span> <span>➡️</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Bottom Navigation Footer -->
+                <div class="mt-7 pt-4 border-t-2 border-slate-200 flex flex-wrap items-center justify-between gap-3">
+                    <button onclick="prevQuestion()" id="btn-prev" class="px-4 py-2.5 rounded-2xl bg-slate-100 hover:bg-slate-200 border-3 border-slate-300 font-extrabold text-slate-700 text-base sm:text-lg flex items-center gap-2 disabled:opacity-40">
+                        <span>⬅️</span> <span>Sebelumnya</span>
+                    </button>
+
+                    <div class="flex items-center gap-2.5">
+                        <button onclick="finishQuizNow()" class="px-4 py-2.5 rounded-2xl bg-amber-100 hover:bg-amber-200 border-3 border-amber-400 font-extrabold text-amber-950 text-base sm:text-lg flex items-center gap-1.5">
+                            <span>🏁</span> <span>Selesai & Lihat Rapor</span>
+                        </button>
+
+                        <button onclick="nextQuestion()" id="btn-next" class="btn-3d-blue px-5 py-2.5 rounded-2xl font-extrabold text-sky-950 text-base sm:text-lg flex items-center gap-2">
+                            <span>Selanjutnya</span> <span>➡️</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             VIEW 3: RESULT & CHARACTER REPORT SCREEN
+             ========================================== -->
+        <section id="view-result" class="hidden kid-card p-5 sm:p-8 animate-pop">
+            <div class="text-center max-w-2xl mx-auto">
+                <div id="result-trophy" class="text-6xl sm:text-8xl mb-2 animate-bounce">🏆</div>
+                <span class="bg-amber-300 text-amber-950 font-black px-4 py-1 rounded-full text-sm sm:text-base uppercase">
+                    Rapor Karakter Anak Pancasila • Kelas 2 SD
+                </span>
+                <h2 id="result-greeting" class="text-2xl sm:text-4xl font-bold text-sky-950 mt-3">
+                    Selamat, Anak Hebat!
+                </h2>
+                <p id="result-predicate" class="text-lg sm:text-2xl font-extrabold text-emerald-700 mt-1">
+                    🌟 Predikat: Duta Pancasila Teladan! 🌟
+                </p>
+
+                <!-- Giant Stars Row -->
+                <div id="result-stars-row" class="flex justify-center gap-2 text-4xl sm:text-5xl my-4">
+                    ⭐ ⭐ ⭐ ⭐ ⭐
+                </div>
+            </div>
+
+            <!-- Score & Accuracy Summary Cards -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 my-6">
+                <div class="bg-emerald-50 border-4 border-emerald-300 rounded-3xl p-4 text-center">
+                    <div class="text-xs sm:text-sm font-extrabold text-emerald-800 uppercase">Skor Akhir</div>
+                    <div id="res-final-score" class="text-3xl sm:text-5xl font-black text-emerald-700 mt-1">100</div>
+                </div>
+                <div class="bg-amber-50 border-4 border-amber-300 rounded-3xl p-4 text-center">
+                    <div class="text-xs sm:text-sm font-extrabold text-amber-800 uppercase">Jawaban Benar</div>
+                    <div id="res-correct-count" class="text-3xl sm:text-5xl font-black text-amber-700 mt-1">0</div>
+                </div>
+                <div class="bg-rose-50 border-4 border-rose-300 rounded-3xl p-4 text-center">
+                    <div class="text-xs sm:text-sm font-extrabold text-rose-800 uppercase">Belum Tepat</div>
+                    <div id="res-wrong-count" class="text-3xl sm:text-5xl font-black text-rose-700 mt-1">0</div>
+                </div>
+                <div class="bg-sky-50 border-4 border-sky-300 rounded-3xl p-4 text-center">
+                    <div class="text-xs sm:text-sm font-extrabold text-sky-800 uppercase">Total Dijawab</div>
+                    <div id="res-total-count" class="text-3xl sm:text-5xl font-black text-sky-700 mt-1">0</div>
+                </div>
+            </div>
+
+            <!-- Instructional Designer Analytics: Cognitive vs Behavioral & Difficulty Breakdown -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 mb-6">
+                <!-- Dimension Breakdown -->
+                <div class="bg-purple-50 border-4 border-purple-200 rounded-3xl p-5">
+                    <h3 class="text-lg sm:text-xl font-bold text-purple-950 mb-3 flex items-center gap-2">
+                        <span>🧭</span> Analisis Dimensi Capaian Siswa
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm sm:text-base font-extrabold text-purple-900 mb-1">
+                                <span>🧠 Kognitif (Pengetahuan Aturan & Pancasila)</span>
+                                <span id="stat-kognitif-text">0/0 (0%)</span>
+                            </div>
+                            <div class="w-full h-4 bg-white rounded-full overflow-hidden border-2 border-purple-300">
+                                <div id="stat-kognitif-bar" class="h-full bg-purple-500 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm sm:text-base font-extrabold text-rose-900 mb-1">
+                                <span>💖 Perilaku (Sikap Situasional Sehari-hari)</span>
+                                <span id="stat-perilaku-text">0/0 (0%)</span>
+                            </div>
+                            <div class="w-full h-4 bg-white rounded-full overflow-hidden border-2 border-rose-300">
+                                <div id="stat-perilaku-bar" class="h-full bg-rose-500 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Topic & Difficulty Breakdown -->
+                <div class="bg-sky-50 border-4 border-sky-200 rounded-3xl p-5">
+                    <h3 class="text-lg sm:text-xl font-bold text-sky-950 mb-3 flex items-center gap-2">
+                        <span>📊</span> Analisis Tingkat Kesulitan Soal
+                    </h3>
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm sm:text-base font-extrabold text-emerald-900 mb-1">
+                                <span>🟢 Soal Tingkat Mudah</span>
+                                <span id="stat-mudah-text">0/0 (0%)</span>
+                            </div>
+                            <div class="w-full h-4 bg-white rounded-full overflow-hidden border-2 border-emerald-300">
+                                <div id="stat-mudah-bar" class="h-full bg-emerald-500 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-sm sm:text-base font-extrabold text-amber-900 mb-1">
+                                <span>🟡 Soal Tingkat Menengah (HOTS Anak)</span>
+                                <span id="stat-menengah-text">0/0 (0%)</span>
+                            </div>
+                            <div class="w-full h-4 bg-white rounded-full overflow-hidden border-2 border-amber-300">
+                                <div id="stat-menengah-bar" class="h-full bg-amber-500 rounded-full transition-all" style="width: 0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex flex-wrap justify-center gap-4 mb-8">
+                <button onclick="showView('home')" class="btn-3d-yellow px-6 py-3.5 rounded-2xl font-extrabold text-amber-950 text-lg sm:text-xl flex items-center gap-2">
+                    <span>🏠</span> <span>Main Lagi / Pilih Paket Lain</span>
+                </button>
+                <button onclick="copyResultSummary()" class="btn-3d-blue px-6 py-3.5 rounded-2xl font-extrabold text-sky-950 text-lg sm:text-xl flex items-center gap-2">
+                    <span>📋</span> <span id="btn-copy-report-text">Salin Rapor Hasil untuk Guru/Orang Tua</span>
+                </button>
+            </div>
+
+            <!-- Answer Review Section -->
+            <div class="border-t-4 border-sky-100 pt-6">
+                <h3 class="text-xl sm:text-2xl font-bold text-sky-950 mb-4">
+                    📖 Ulasan Jawaban & Pembahasan:
+                </h3>
+                <div id="result-review-list" class="space-y-3 max-h-[480px] overflow-y-auto pr-2">
+                    <!-- Filled by JS -->
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ==========================================
+             VIEW 4: TEACHER MODE - 50 QUESTIONS BANK & BLUEPRINT
+             ========================================== -->
+        <section id="view-teacher" class="hidden kid-card p-5 sm:p-8 animate-pop">
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b-4 border-sky-100">
+                <div>
+                    <span class="bg-purple-600 text-white font-extrabold px-3 py-1 rounded-full text-xs uppercase">
+                        Dokumen Instructional Design & Kisi-Kisi Kurikulum Merdeka
+                    </span>
+                    <h2 class="text-2xl sm:text-3xl font-bold text-sky-950 mt-1">
+                        📋 Bank 50 Soal Pendidikan Pancasila Kelas 2 SD
+                    </h2>
+                </div>
+                <button onclick="showView('home')" class="btn-3d-yellow px-5 py-2.5 rounded-2xl font-extrabold text-amber-950 text-base flex items-center gap-2">
+                    <span>⬅️</span> <span>Kembali ke Menu Game</span>
+                </button>
+            </div>
+
+            <!-- Instructional Design Matrix Summary -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 my-5">
+                <div class="bg-sky-50 border-3 border-sky-300 p-3.5 rounded-2xl">
+                    <div class="text-xs font-extrabold text-sky-700 uppercase">Topik 1: Aku Patuh Aturan</div>
+                    <div class="text-2xl font-black text-sky-950">25 Soal <span class="text-sm font-bold">(No. 1–25)</span></div>
+                </div>
+                <div class="bg-emerald-50 border-3 border-emerald-300 p-3.5 rounded-2xl">
+                    <div class="text-xs font-extrabold text-emerald-700 uppercase">Topik 2: Berperilaku Pancasila</div>
+                    <div class="text-2xl font-black text-emerald-950">25 Soal <span class="text-sm font-bold">(No. 26–50)</span></div>
+                </div>
+                <div class="bg-amber-50 border-3 border-amber-300 p-3.5 rounded-2xl">
+                    <div class="text-xs font-extrabold text-amber-800 uppercase">Distribusi Kesulitan</div>
+                    <div class="text-lg font-black text-amber-950">25 Mudah • 25 Menengah</div>
+                </div>
+                <div class="bg-purple-50 border-3 border-purple-300 p-3.5 rounded-2xl">
+                    <div class="text-xs font-extrabold text-purple-800 uppercase">Dimensi Penilaian</div>
+                    <div class="text-lg font-black text-purple-950">25 Kognitif • 25 Perilaku</div>
+                </div>
+            </div>
+
+            <!-- Filters for Teacher Bank -->
+            <div class="bg-slate-50 border-3 border-slate-200 rounded-2xl p-4 mb-5 grid grid-cols-1 sm:grid-cols-4 gap-3">
+                <input
+                    type="text"
+                    id="teacher-search"
+                    oninput="renderTeacherBank()"
+                    placeholder="🔍 Cari kata kunci soal..."
+                    class="px-3.5 py-2 rounded-xl border-2 border-slate-300 font-bold text-slate-800 focus:outline-none focus:border-sky-500"
+                />
+                <select id="teacher-filter-theme" onchange="renderTeacherBank()" class="px-3 py-2 rounded-xl border-2 border-slate-300 font-bold text-slate-800">
+                    <option value="ALL">Semua Tema (50 Soal)</option>
+                    <option value="Aku Patuh Aturan">Topik 1: Aku Patuh Aturan (25)</option>
+                    <option value="Aku Berperilaku Pancasila">Topik 2: Aku Berperilaku Pancasila (25)</option>
+                </select>
+                <select id="teacher-filter-diff" onchange="renderTeacherBank()" class="px-3 py-2 rounded-xl border-2 border-slate-300 font-bold text-slate-800">
+                    <option value="ALL">Semua Kesulitan</option>
+                    <option value="Mudah">🟢 Mudah (25 Soal)</option>
+                    <option value="Menengah">🟡 Menengah (25 Soal)</option>
+                </select>
+                <select id="teacher-filter-dim" onchange="renderTeacherBank()" class="px-3 py-2 rounded-xl border-2 border-slate-300 font-bold text-slate-800">
+                    <option value="ALL">Semua Dimensi</option>
+                    <option value="Kognitif">🧠 Kognitif / Pengetahuan (25)</option>
+                    <option value="Perilaku">💖 Perilaku / Sikap Situasional (25)</option>
+                </select>
+            </div>
+
+            <div class="mb-3 text-sm font-extrabold text-slate-600 flex justify-between items-center">
+                <span id="teacher-count-label">Menampilkan 50 dari 50 soal</span>
+                <span class="text-sky-700">💡 Klik "Coba Soal Ini" untuk langsung mempraktikkannya di layar kelas!</span>
+            </div>
+
+            <!-- List of 50 Questions -->
+            <div id="teacher-questions-list" class="space-y-4 max-h-[600px] overflow-y-auto pr-2">
+                <!-- Populated by JS -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Custom Confirmation Modal (No alert/confirm) -->
+    <div id="custom-modal" class="fixed inset-0 z-50 bg-slate-900/60 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="kid-card max-w-md w-full p-6 text-center animate-pop">
+            <div class="text-6xl mb-3" id="modal-emoji">🤔</div>
+            <h3 class="text-2xl font-bold text-sky-950 mb-2" id="modal-title">Kembali ke Halaman Utama?</h3>
+            <p class="text-base sm:text-lg font-bold text-slate-600 mb-6" id="modal-desc">
+                Apakah kamu yakin ingin keluar dari kuis yang sedang berlangsung?
+            </p>
+            <div class="flex justify-center gap-3">
+                <button onclick="closeModal()" class="px-5 py-2.5 rounded-2xl bg-slate-200 font-extrabold text-slate-700 text-lg">
+                    Batal
+                </button>
+                <button id="modal-confirm-btn" class="btn-3d-rose px-6 py-2.5 rounded-2xl font-extrabold text-white text-lg">
+                    Ya, Keluar
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================
+         JAVASCRIPT: 50 COMPLETE QUESTIONS + AUDIO + GAME ENGINE
+         ========================================================== -->
+    <script>
+        /* ========================================================
+           1. DATABASE 50 SOAL LENGKAP PENDIDIKAN PANCASILA KELAS 2 SD
+              Kurikulum Merdeka Fase A:
+              - Nomor 1 s.d. 25  : Topik 1 "Aku Patuh Aturan"
+              - Nomor 26 s.d. 50 : Topik 2 "Aku Berperilaku Pancasila"
+              - Tingkat Kesulitan: 25 Mudah & 25 Menengah
+              - Dimensi Penilaian: 25 Kognitif & 25 Perilaku (Sikap Situasional)
+           ======================================================== */
+        const ALL_QUESTIONS = [
+            // =====================================================
+            // TOPIK 1: AKU PATUH ATURAN (SOAL 1 - 25)
+            // =====================================================
+            {
+                id: 1,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Pagi Hari di Rumah",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "🛏️☀️",
+                question: "Setiap bangun tidur di pagi hari, aturan baik yang harus kita lakukan terhadap tempat tidur kita adalah ....",
+                options: [
+                    "Merapikan kasur, bantal, dan selimut sendiri",
+                    "Membiarkannya berantakan karena buru-buru bermain",
+                    "Menyuruh adik yang masih kecil untuk merapikannya"
+                ],
+                answer: 0,
+                explanation: "Anak hebat yang mandiri selalu merapikan tempat tidurnya sendiri setiap bangun pagi agar kamar bersih dan rapi."
+            },
+            {
+                id: 2,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Sikap Berpamitan kepada Orang Tua",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "🎒🙏",
+                question: "Jam sudah menunjukkan pukul 06.30 pagi. Kamu sudah siap memakai seragam untuk berangkat ke sekolah. Apa yang sebaiknya kamu lakukan sebelum keluar rumah?",
+                options: [
+                    "Langsung berlari keluar rumah tanpa bicara apa-apa",
+                    "Berpamitan, mencium tangan ayah dan ibu, serta mengucapkan salam",
+                    "Berteriak keras dari halaman meminta uang jajan tambahan"
+                ],
+                answer: 1,
+                explanation: "Berpamitan dan mencium tangan orang tua sebelum berangkat sekolah adalah aturan sopan santun yang membuat orang tua tenang dan mendoakan kita."
+            },
+            {
+                id: 3,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Pengertian dan Tujuan Aturan",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "📜🏡",
+                question: "Aturan di rumah dibuat agar seluruh anggota keluarga hidup dengan ....",
+                options: [
+                    "Tertib, rukun, dan nyaman",
+                    "Takut dan sering bertengkar",
+                    "Bebas berbuat sesuka hati"
+                ],
+                answer: 0,
+                explanation: "Aturan di rumah dibuat bukan untuk menakut-nakuti, melainkan agar suasana rumah menjadi tertib, rukun, aman, dan nyaman."
+            },
+            {
+                id: 4,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Saat Makan Bersama Keluarga",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "🍽️🤲",
+                question: "Ibu sudah menyiapkan makan malam di meja makan. Perutmu sudah sangat lapar. Sikap yang patuh pada aturan makan di rumah adalah ....",
+                options: [
+                    "Mencuci tangan, duduk tertib, dan berdoa sebelum makan",
+                    "Makan sambil berlari-lari mengelilingi ruang tamu",
+                    "Mengambil makanan sambil berbicara dengan mulut penuh"
+                ],
+                answer: 0,
+                explanation: "Aturan saat makan adalah mencuci tangan hingga bersih, duduk dengan sopan, berdoa, dan tidak berbicara saat mulut penuh makanan."
+            },
+            {
+                id: 5,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Siapa yang Mematuhi Aturan di Rumah",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "👨‍👩‍👧‍👦❤️",
+                question: "Siapakah yang wajib mematuhi aturan yang ada di rumah?",
+                options: [
+                    "Hanya anak-anak saja",
+                    "Hanya ayah dan ibu saja",
+                    "Semua anggota keluarga di rumah"
+                ],
+                answer: 2,
+                explanation: "Semua anggota keluarga (ayah, ibu, kakak, dan adik) wajib mematuhi aturan di rumah bersama-sama."
+            },
+            {
+                id: 6,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Setelah Bermain di Rumah",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "🧸📦",
+                question: "Sore hari kamu selesai bermain balok susun bersama adik di ruang keluarga. Mainan berserakan di lantai. Apa yang harus kamu lakukan?",
+                options: [
+                    "Mengajak adik merapikan kembali mainan ke dalam kotaknya",
+                    "Meninggalkannya di lantai supaya dibereskan ibu",
+                    "Menendang mainan ke kolong sofa agar tidak terlihat"
+                ],
+                answer: 0,
+                explanation: "Merapikan mainan kembali ke tempatnya setelah selesai bermain mencegah orang lain tersandung dan menjaga rumah tetap rapi."
+            },
+            {
+                id: 7,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Waktu Belajar dan Menonton",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "📺📚",
+                question: "Malam hari pukul 19.00 adalah jadwal belajar di rumahmu, tetapi di televisi sedang ada film kartun kesukaanmu. Sikapmu yang paling tepat adalah ....",
+                options: [
+                    "Menangis dan marah-marah agar dibolehkan menonton televisi",
+                    "Mematikan televisi dengan ikhlas lalu belajar dan mengerjakan PR terlebih dahulu",
+                    "Pura-pura membuka buku padahal matanya tetap menonton televisi"
+                ],
+                answer: 1,
+                explanation: "Anak yang disiplin mendahulukan kewajiban belajar pada waktunya daripada menonton televisi."
+            },
+            {
+                id: 8,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Menjaga Kesehatan di Malam Hari",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "🪥🌙",
+                question: "Sebelum tidur pada malam hari, aturan menjaga kebersihan tubuh yang harus kita lakukan adalah ....",
+                options: [
+                    "Makan permen yang banyak agar tidur nyenyak",
+                    "Menggosok gigi, mencuci kaki dan tangan, lalu berdoa",
+                    "Bermain HP sampai larut malam"
+                ],
+                answer: 1,
+                explanation: "Menggosok gigi sebelum tidur menjaga gigi dari kuman, dan tidur tepat waktu membuat badan segar saat bangun pagi."
+            },
+            {
+                id: 9,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Bermain di Luar Rumah",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🚲⏰",
+                question: "Ibu mengizinkanmu bermain sepeda di taman dekat rumah sampai pukul 16.30 sore. Saat jam tanganmu menunjukkan pukul 16.25, temanmu mengajak bermain lebih jauh. Apa yang kamu lakukan?",
+                options: [
+                    "Ikut bermain jauh karena ibu tidak melihat",
+                    "Menolak dengan sopan dan segera pulang tepat waktu sesuai janji kepada ibu",
+                    "Mematikan jam tangan supaya punya alasan pulang malam"
+                ],
+                answer: 1,
+                explanation: "Menepati batas waktu bermain yang disepakati dengan orang tua adalah bukti anak yang jujur dan bertanggung jawab."
+            },
+            {
+                id: 10,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Akibat Melanggar Aturan di Rumah",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "😴⏰",
+                question: "Riko melanggar aturan jam tidur malam karena asyik bermain gim sampai larut malam. Akibat yang akan dialami Riko keesokan paginya adalah ....",
+                options: [
+                    "Bangun kesiangan, terlambat ke sekolah, dan mengantuk di kelas",
+                    "Tubuh menjadi semakin sehat dan bersemangat",
+                    "Mendapat pujian dari bapak dan ibu guru"
+                ],
+                answer: 0,
+                explanation: "Tidur terlalu larut malam membuat tubuh kurang istirahat sehingga bangun kesiangan dan sulit konsentrasi di sekolah."
+            },
+            {
+                id: 11,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Menjaga Kebersihan Rumah",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "🍌🗑️",
+                question: "Setelah makan buah pisang di teras rumah, kamu memegang kulit pisangnya. Apa tindakan yang harus kamu lakukan?",
+                options: [
+                    "Membuang kulit pisang ke dalam tempat sampah",
+                    "Melempar kulit pisang ke jalan depan rumah",
+                    "Meletakkan kulit pisang di atas kursi tamu"
+                ],
+                answer: 0,
+                explanation: "Membuang kulit pisang di tempat sampah menjaga rumah tetap bersih dan mencegah orang lain terpeleset."
+            },
+            {
+                id: 12,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Menghemat Energi di Rumah",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "💡🚿",
+                question: "Contoh aturan menghemat listrik dan air yang baik di rumah adalah ....",
+                options: [
+                    "Menyalakan semua lampu kamar walaupun siang hari terang",
+                    "Mematikan keran air setelah selesai mencuci tangan dan mematikan lampu saat keluar kamar",
+                    "Membiarkan air keran terus mengalir saat sedang menyabuni tangan"
+                ],
+                answer: 1,
+                explanation: "Mematikan keran air dan lampu yang tidak digunakan adalah aturan baik untuk menghemat air bersih dan energi listrik."
+            },
+            {
+                id: 13,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Kehadiran di Sekolah",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "🏫🔔",
+                question: "Agar tidak terlambat mengikuti pelajaran, kita harus tiba di sekolah ....",
+                options: [
+                    "Sebelum bel tanda masuk berbunyi",
+                    "Sesudah guru selesai mengajar",
+                    "Saat jam istirahat siang dimulai"
+                ],
+                answer: 0,
+                explanation: "Datang sebelum bel masuk berbunyi membuat kita tenang menyiapkan alat tulis dan siap belajar tepat waktu."
+            },
+            {
+                id: 14,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Memakai Seragam Sekolah",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "👔👟",
+                question: "Mengapa seluruh siswa diatur untuk memakai seragam sekolah dengan rapi dan lengkap?",
+                options: [
+                    "Agar terlihat rapi, disiplin, dan tidak membeda-bedakan teman",
+                    "Supaya bisa pamer baju baru kepada teman-teman",
+                    "Karena baju bermain di rumah sudah kotor semua"
+                ],
+                answer: 0,
+                explanation: "Memakai seragam sesuai jadwal melatih kedisiplinan, kerapian, dan menciptakan kebersamaan antar siswa."
+            },
+            {
+                id: 15,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Saat Guru Menjelaskan Pelajaran",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "👩‍🏫✋",
+                question: "Saat Ibu Guru sedang menjelaskan pelajaran di depan kelas, teman sebangkumu mengajakmu mengobrol dan bercanda. Apa yang sebaiknya kamu lakukan?",
+                options: [
+                    "Ikut mengobrol dengan suara keras supaya seru",
+                    "Mengingatkan teman dengan sopan untuk memperhatikan Ibu Guru dulu",
+                    "Melempar kertas ke teman lain di depan"
+                ],
+                answer: 1,
+                explanation: "Memperhatikan guru saat menjelaskan dan mengingatkan teman dengan sopan adalah wujud patuh aturan di dalam kelas."
+            },
+            {
+                id: 16,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Saat Upacara Bendera",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🇮🇩🫡",
+                question: "Hari Senin pagi diadakan upacara bendera di halaman sekolah. Saat bendera Merah Putih dikibarkan dan lagu Indonesia Raya dinyanyikan, sikapmu adalah ....",
+                options: [
+                    "Berdiri tegak, memberi hormat dengan khidmat, dan ikut bernyanyi dengan sungguh-sungguh",
+                    "Mengobrol dan mendorong-dorong bahu teman di barisan",
+                    "Duduk jongkok di belakang barisan sambil bermain rumput"
+                ],
+                answer: 0,
+                explanation: "Sikap sempurna dan hormat saat pengibaran bendera Merah Putih menunjukkan rasa cinta tanah air dan disiplin aturan sekolah."
+            },
+            {
+                id: 17,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Piket Kebersihan Kelas",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🧹🪣",
+                question: "Hari Rabu adalah jadwal piket kelasmu. Teman-teman regumu sedang menyapu dan menghapus papan tulis, sedangkan kamu ingin cepat bermain di lapangan. Apa yang harus kamu lakukan?",
+                options: [
+                    "Kabur diam-diam ke lapangan sebelum dilihat ketua kelas",
+                    "Melaksanakan tugas piket bersama teman sampai kelas bersih, baru kemudian bermain",
+                    "Menyuruh teman lain menggantikan tugasmu dengan imbalan permen"
+                ],
+                answer: 1,
+                explanation: "Melaksanakan piket kelas sesuai jadwal adalah tanggung jawab bersama agar ruang kelas nyaman dipakai belajar."
+            },
+            {
+                id: 18,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan di Perpustakaan Sekolah",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "📖🤫",
+                question: "Ketika kita sedang membaca buku cerita di perpustakaan sekolah, aturan yang wajib kita patuhi adalah ....",
+                options: [
+                    "Tenang, tidak berisik, dan mengembalikan buku ke rak semula",
+                    "Mencoret-coret gambar di buku perpustakaan dengan krayon",
+                    "Berkejar-kejaran dan makan kerupuk di ruang baca"
+                ],
+                answer: 0,
+                explanation: "Di perpustakaan kita harus menjaga ketenangan agar tidak mengganggu teman yang sedang membaca serta merawat buku dengan baik."
+            },
+            {
+                id: 19,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Budaya Antre di Sekolah",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🚶‍♂️🚶‍♀️🚰",
+                question: "Saat jam istirahat, banyak siswa sedang berbaris antre untuk mencuci tangan di wastafel sekolah. Tanganmu kotor terkena kapur. Apa yang sebaiknya kamu lakukan?",
+                options: [
+                    "Menerobos barisan paling depan karena merasa paling buru-buru",
+                    "Ikut berbaris di belakang dengan sabar menunggu giliran",
+                    "Memarahi teman di depan karena mencuci tangan terlalu lama"
+                ],
+                answer: 1,
+                explanation: "Budaya antre dengan tertib mencegah keributan, menghargai hak orang lain, dan membuat semua siswa mendapat giliran dengan aman."
+            },
+            {
+                id: 20,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Menjaga Kebersihan Lingkungan Sekolah",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🛝🗑️",
+                question: "Saat sedang bermain di taman sekolah, kamu melihat ada bungkus plastik bekas jajanan jatuh di dekat ayunan. Apa yang sebaiknya kamu lakukan?",
+                options: [
+                    "Memungut bungkus plastik tersebut dan membuangnya ke tempat sampah",
+                    "Membiarkannya saja karena bukan kamu yang membuangnya",
+                    "Menendang sampah plastik itu ke dalam pot bunga"
+                ],
+                answer: 0,
+                explanation: "Peduli kebersihan lingkungan sekolah walaupun bukan sampah milik kita adalah ciri siswa berkarakter terpuji."
+            },
+            {
+                id: 21,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Meminjam Barang Teman",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "✏️🤝",
+                question: "Pensilmu patah saat sedang menulis di kelas, sedangkan kamu lupa membawa rautan. Teman sebangkumu memiliki dua rautan. Sikap yang patuh aturan adalah ....",
+                options: [
+                    "Langsung mengambil rautan di meja teman tanpa bicara",
+                    "Meminta izin dengan sopan terlebih dahulu dan mengucapkan terima kasih setelah meminjam",
+                    "Menyembunyikan salah satu rautan teman ke dalam tasmu"
+                ],
+                answer: 1,
+                explanation: "Meminta izin sebelum memakai barang orang lain dan mengembalikannya sambil berterima kasih adalah aturan kesopanan yang wajib dipatuhi."
+            },
+            {
+                id: 22,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Aturan Kejujuran Saat Ulangan",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "📝✨",
+                question: "Saat sedang mengerjakan ulangan Pendidikan Pancasila, ada satu soal yang menurutmu agak sulit. Sikap jujur dan patuh aturan yang harus kamu tunjukkan adalah ....",
+                options: [
+                    "Berusaha mengingat pelajaran dan mengerjakannya sendiri dengan jujur",
+                    "Melirik lembar jawaban milik teman di sebelahmu",
+                    "Membuka buku catatan di kolong meja secara sembunyi-sembunyi"
+                ],
+                answer: 0,
+                explanation: "Mengerjakan ulangan sendiri dengan jujur jauh lebih mulia daripada mendapat nilai tinggi tetapi hasil menyontek."
+            },
+            {
+                id: 23,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Perbedaan Aturan di Rumah dan di Sekolah",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "🏡🏫",
+                question: "Manakah di bawah ini yang merupakan aturan khusus di sekolah (bukan aturan di rumah)?",
+                options: [
+                    "Merapikan tempat tidur setelah bangun pagi",
+                    "Mengikuti upacara bendera setiap hari Senin dengan seragam lengkap",
+                    "Membantu ibu menyiram tanaman di halaman rumah pada sore hari"
+                ],
+                answer: 1,
+                explanation: "Upacara bendera hari Senin dengan seragam lengkap adalah aturan yang berlaku di lingkungan sekolah."
+            },
+            {
+                id: 24,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Akibat Melanggar Aturan di Sekolah",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "🏃‍♂️⚠️",
+                question: "Apa akibatnya jika siswa suka berlari-larian dan kejar-kejaran di dalam ruang kelas yang sempit?",
+                options: [
+                    "Bisa menabrak meja atau teman sehingga terjatuh dan terluka",
+                    "Ruang kelas menjadi semakin rapi dan bersih",
+                    "Semua teman menjadi lebih mudah berkonsentrasi belajar"
+                ],
+                answer: 0,
+                explanation: "Berlari-larian di dalam ruang kelas membahayakan keselamatan diri sendiri dan teman karena banyak meja serta kursi."
+            },
+            {
+                id: 25,
+                theme: "Aku Patuh Aturan",
+                subtopic: "Manfaat Mematuhi Aturan di Mana Saja",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "🌟😊",
+                question: "Apabila semua siswa di kelas 2 patuh pada aturan sekolah, maka manfaat yang dirasakan bersama adalah ....",
+                options: [
+                    "Kegiatan belajar menjadi aman, tertib, menyenangkan, dan semua siswa rukun",
+                    "Suasana kelas menjadi gaduh dan tidak nyaman",
+                    "Guru menjadi sering menegur siswa setiap hari"
+                ],
+                answer: 0,
+                explanation: "Kepatuhan terhadap aturan membuat suasana belajar di sekolah menjadi aman, tertib, damai, dan menyenangkan bagi semua warga sekolah."
+            },
+
+            // =====================================================
+            // TOPIK 2: AKU BERPERILAKU PANCASILA (SOAL 26 - 50)
+            // =====================================================
+            {
+                id: 26,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Lambang Negara Indonesia",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "🦅🇮🇩",
+                question: "Lambang negara Republik Indonesia adalah ....",
+                options: [
+                    "Garuda Pancasila",
+                    "Harimau Sumatra",
+                    "Burung Cenderawasih"
+                ],
+                answer: 0,
+                explanation: "Lambang negara kita adalah Garuda Pancasila yang di dadanya terdapat perisai berisi lima lambang sila Pancasila."
+            },
+            {
+                id: 27,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Lambang Sila Pertama Pancasila",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "⭐✨",
+                question: "Sila pertama Pancasila berbunyi 'Ketuhanan Yang Maha Esa'. Lambang sila pertama adalah ....",
+                options: [
+                    "Bintang emas",
+                    "Pohon beringin",
+                    "Rantai emas"
+                ],
+                answer: 0,
+                explanation: "Bintang emas berlatar hitam merupakan lambang sila ke-1 Pancasila: Ketuhanan Yang Maha Esa."
+            },
+            {
+                id: 28,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Lambang Sila Kedua Pancasila",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "⛓️❤️",
+                question: "Rantai emas yang saling berkaitan pada perisai Garuda Pancasila adalah lambang sila ke- ....",
+                options: [
+                    "Sila ke-1",
+                    "Sila ke-2",
+                    "Sila ke-3"
+                ],
+                answer: 1,
+                explanation: "Rantai emas adalah lambang sila ke-2 Pancasila: Kemanusiaan yang adil dan beradab."
+            },
+            {
+                id: 29,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Lambang Sila Ketiga Pancasila",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "🌳🤝",
+                question: "Sila ketiga Pancasila berbunyi 'Persatuan Indonesia'. Lambang dari sila ketiga adalah ....",
+                options: [
+                    "Pohon beringin",
+                    "Kepala banteng",
+                    "Padi dan kapas"
+                ],
+                answer: 0,
+                explanation: "Pohon beringin yang rindang melambangkan sila ke-3 Pancasila, tempat seluruh rakyat Indonesia bersatu dan berteduh."
+            },
+            {
+                id: 30,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Lambang Sila Keempat Pancasila",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "🐂🗣️",
+                question: "Lambang sila keempat Pancasila yang mengajarkan kita untuk gemar bermusyawarah adalah ....",
+                options: [
+                    "Kepala banteng",
+                    "Bintang emas",
+                    "Padi dan kapas"
+                ],
+                answer: 0,
+                explanation: "Kepala banteng adalah lambang sila ke-4 Pancasila karena banteng adalah hewan sosial yang suka berkumpul, seperti manusia yang bermusyawarah."
+            },
+            {
+                id: 31,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Lambang Sila Kelima Pancasila",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "🌾☁️",
+                question: "Padi dan kapas adalah lambang Pancasila sila kelima yang berbunyi ....",
+                options: [
+                    "Persatuan Indonesia",
+                    "Kemanusiaan yang adil dan beradab",
+                    "Keadilan sosial bagi seluruh rakyat Indonesia"
+                ],
+                answer: 2,
+                explanation: "Padi dan kapas melambangkan pangan dan sandang sebagai syarat kemakmuran pada sila ke-5: Keadilan sosial bagi seluruh rakyat Indonesia."
+            },
+            {
+                id: 32,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Pengamalan Sila Ke-1 di Sekolah",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "🙏🏫",
+                question: "Sebelum memulai pelajaran di kelas, ketua kelas memimpin teman-teman untuk berdoa. Sikap yang harus kamu tunjukkan sesuai sila pertama Pancasila adalah ....",
+                options: [
+                    "Berdoa dengan khusyuk dan tenang sesuai agama masing-masing",
+                    "Tetap bermain pensil dan menggoda teman di sebelah",
+                    "Menertawakan teman yang sedang berdoa dengan sungguh-sungguh"
+                ],
+                answer: 0,
+                explanation: "Berdoa dengan sungguh-sungguh sebelum dan sesudah belajar adalah pengamalan sila ke-1 Pancasila."
+            },
+            {
+                id: 33,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Toleransi Beribadah (Sila Ke-1)",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🕌⛪",
+                question: "Hari Minggu pagi kamu ingin mengajak Made bermain bola, tetapi Made mengatakan bahwa ia harus pergi beribadah dulu bersama keluarganya. Sikapmu yang sesuai sila pertama adalah ....",
+                options: [
+                    "Memaksa Made membatalkan ibadahnya supaya tetap ikut bermain",
+                    "Mempersilakan Made beribadah dengan tenang dan menunggu waktu bermain setelah ia selesai",
+                    "Marah dan tidak mau berteman lagi dengan Made"
+                ],
+                answer: 1,
+                explanation: "Menghormati teman yang sedang menjalankan ibadah sesuai agamanya adalah wujud nyata pengamalan sila ke-1 Pancasila."
+            },
+            {
+                id: 34,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Bersyukur kepada Tuhan (Sila Ke-1)",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "🌱🐱",
+                question: "Tuhan menciptakan tumbuhan yang hijau dan hewan-hewan di sekitar kita. Cara kita bersyukur kepada Tuhan sesuai sila pertama Pancasila adalah ....",
+                options: [
+                    "Menyiram tanaman dan memberi makan hewan peliharaan dengan kasih sayang",
+                    "Memetik semua bunga di taman lalu membuangnya",
+                    "Melempari kucing yang lewat di depan rumah dengan batu"
+                ],
+                answer: 0,
+                explanation: "Menyayangi dan merawat makhluk ciptaan Tuhan (hewan dan tumbuhan) merupakan wujud rasa syukur pada sila pertama Pancasila."
+            },
+            {
+                id: 35,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Menolong Teman yang Kesulitan (Sila Ke-2)",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "🚲🩹",
+                question: "Saat jam olahraga di lapangan, kamu melihat Dika terjatuh saat berlari hingga lututnya lecet. Apa yang sebaiknya kamu lakukan sesuai sila kedua Pancasila?",
+                options: [
+                    "Menertawakan Dika karena kurang hati-hati saat berlari",
+                    "Segera menolong Dika berdiri dan mengantarnya ke ruang UKS atau melapor pada guru",
+                    "Pura-pura tidak melihat dan lanjut bermain bola"
+                ],
+                answer: 1,
+                explanation: "Menolong teman yang terjatuh atau mengalami kesulitan dengan tulus adalah pengamalan sila ke-2: Kemanusiaan yang adil dan beradab."
+            },
+            {
+                id: 36,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Berbagi dengan Sesama (Sila Ke-2)",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🍞🤝",
+                question: "Saat jam istirahat, kamu membawa dua potong roti bekal dari ibu. Kamu melihat Lani duduk termenung karena bekal makanannya tertinggal di rumah. Sikapmu yang sesuai sila kedua adalah ....",
+                options: [
+                    "Membagi satu potong rotimu kepada Lani dengan senang hati",
+                    "Makan roti di depan Lani sambil mengejeknya",
+                    "Menyembunyikan rotimu di dalam tas supaya tidak diminta"
+                ],
+                answer: 0,
+                explanation: "Peduli dan gemar berbagi makanan kepada teman yang membutuhkan adalah perilaku mulia sesuai sila kedua Pancasila."
+            },
+            {
+                id: 37,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Sikap Sopan dan Beradab (Sila Ke-2)",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "🙇‍♂️👵",
+                question: "Ketika kamu berjalan melewati orang tua atau bapak/ibu guru yang sedang duduk, sikap sopan yang sesuai sila kedua Pancasila adalah ....",
+                options: [
+                    "Berlari kencang sambil berteriak di depan mereka",
+                    "Membungkukkan badan sedikit sambil mengucapkan 'Permisi, Pak/Bu'",
+                    "Melangkah dengan angkuh tanpa menyapa"
+                ],
+                answer: 1,
+                explanation: "Bersikap sopan santun dan menghormati orang yang lebih tua mencerminkan nilai 'beradab' pada sila ke-2 Pancasila."
+            },
+            {
+                id: 38,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Berteman Tanpa Membeda-bedakan (Sila Ke-3)",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "👧🏽👦🏻🤝",
+                question: "Di kelasmu ada siswa baru bernama Lukas yang berasal dari Papua. Rambut dan logat bicaranya berbeda denganmu. Sikapmu yang sesuai sila ketiga Pancasila adalah ....",
+                options: [
+                    "Mengajak Lukas berkenalan dan bermain bersama tanpa membeda-bedakan suku",
+                    "Hanya mau bermain dengan teman yang satu daerah saja",
+                    "Menjauhi Lukas karena logat bicaranya terdengar asing"
+                ],
+                answer: 0,
+                explanation: "Berteman rukun dengan siapa saja tanpa membedakan suku, warna kulit, dan asal daerah adalah pengamalan sila ke-3: Persatuan Indonesia."
+            },
+            {
+                id: 39,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Menjaga Kerukunan di Rumah (Sila Ke-3)",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🧩👧👦",
+                question: "Kamu dan adikmu ingin bermain puzzle, tetapi hanya ada satu kotak puzzle di rumah. Agar tetap rukun sesuai sila ketiga Pancasila, apa yang sebaiknya kamu lakukan?",
+                options: [
+                    "Merebut kotak puzzle karena kamu merasa lebih besar dari adik",
+                    "Mengajak adik menyusun puzzle itu bersama-sama dengan kompak",
+                    "Menyembunyikan kepingan puzzle supaya adik tidak bisa bermain"
+                ],
+                answer: 1,
+                explanation: "Bermain bersama adik dengan kompak dan rukun menjaga persatuan dan kedamaian di dalam keluarga."
+            },
+            {
+                id: 40,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Bangga Budaya Bangsa Indonesia (Sila Ke-3)",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "💃🎶",
+                question: "Di sekolah diadakan pentas seni tari tradisional dan lagu daerah Indonesia. Sikap yang menunjukkan pengamalan sila ketiga Pancasila adalah ....",
+                options: [
+                    "Ikut mempelajari lagu dan tarian daerah dengan rasa bangga",
+                    "Menganggap lagu daerah kuno dan tidak mau menontonnya",
+                    "Mengganggu teman yang sedang berlatih menari daerah"
+                ],
+                answer: 0,
+                explanation: "Mencintai dan bangga terhadap budaya, lagu daerah, serta tarian tradisional Indonesia merupakan pengamalan sila ke-3 Pancasila."
+            },
+            {
+                id: 41,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Bermusyawarah Memilih Ketua Kelas (Sila Ke-4)",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "🗳️🙋‍♀️",
+                question: "Siswa kelas 2 sedang berkumpul mendiskusikan pemilihan ketua kelas secara bersama-sama. Kegiatan membicarakan masalah bersama untuk mencapai kesepakatan disebut ....",
+                options: [
+                    "Musyawarah",
+                    "Pertengkaran",
+                    "Perlombaan lari"
+                ],
+                answer: 0,
+                explanation: "Musyawarah adalah kegiatan berdiskusi bersama untuk mengambil keputusan bersama sesuai sila ke-4 Pancasila."
+            },
+            {
+                id: 42,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Menghargai Pendapat Teman (Sila Ke-4)",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🗣️👂",
+                question: "Saat kerja kelompok menentukan lagu yang akan dinyanyikan di depan kelas, Siti sedang menyampaikan usulnya. Sikapmu yang sesuai sila keempat Pancasila adalah ....",
+                options: [
+                    "Mendengarkan usul Siti dengan sopan sampai ia selesai berbicara",
+                    "Memotong pembicaraan Siti sambil berteriak menolak usulnya",
+                    "Menutup telinga karena hanya ingin usulmu sendiri yang dipakai"
+                ],
+                answer: 0,
+                explanation: "Mendengarkan dan menghargai pendapat teman saat berdiskusi tanpa memaksakan kehendak adalah pengamalan sila ke-4 Pancasila."
+            },
+            {
+                id: 43,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Menerima Hasil Keputusan Bersama (Sila Ke-4)",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🧹🏖️",
+                question: "Keluargamu bermusyawarah menentukan kegiatan hari Minggu. Kamu mengusulkan pergi ke pantai, tetapi ayah, ibu, dan kakak sepakat untuk kerja bakti merapikan kebun rumah dulu. Sikapmu adalah ....",
+                options: [
+                    "Mengambek di kamar dan mengunci pintu seharian",
+                    "Menerima keputusan bersama dengan lapang dada dan ikut kerja bakti dengan gembira",
+                    "Merusak tanaman di kebun karena kesal tidak jadi ke pantai"
+                ],
+                answer: 1,
+                explanation: "Melaksanakan hasil keputusan musyawarah dengan ikhlas dan penuh tanggung jawab adalah ciri anak Pancasila sila ke-4."
+            },
+            {
+                id: 44,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Bersikap Adil dan Berbagi Tugas (Sila Ke-5)",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🪴🧹",
+                question: "Kamu menjadi ketua kelompok tugas membersihkan taman kelas. Anggota kelompokmu ada 4 orang. Bagaimana cara membagi tugas yang sesuai sila kelima Pancasila?",
+                options: [
+                    "Membagi tugas secara adil dan merata sesuai kemampuan setiap anggota",
+                    "Menyuruh 1 teman bekerja sendirian sedangkan yang lain duduk santai",
+                    "Memberikan tugas paling berat hanya kepada teman yang tidak kamu sukai"
+                ],
+                answer: 0,
+                explanation: "Membagi tugas kelompok secara adil dan bergotong royong adalah pengamalan sila ke-5: Keadilan sosial bagi seluruh rakyat Indonesia."
+            },
+            {
+                id: 45,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Gemar Menabung dan Hidup Hemat (Sila Ke-5)",
+                dimension: "Perilaku",
+                difficulty: "Mudah",
+                emoji: "🐷🪙",
+                question: "Setiap hari ibu memberimu uang saku. Setelah membeli makanan sehat di kantin, uang sakumu masih tersisa Rp2.000. Perilaku yang sesuai sila kelima Pancasila adalah ....",
+                options: [
+                    "Menabung sisa uang saku ke dalam celengan di rumah",
+                    "Menghabiskan semuanya untuk membeli mainan yang tidak diperlukan",
+                    "Membuang uang koin karena dianggap berat di saku"
+                ],
+                answer: 0,
+                explanation: "Hidup hemat, tidak boros, dan gemar menabung merupakan contoh perilaku sila ke-5 Pancasila."
+            },
+            {
+                id: 46,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Menghargai Karya Teman (Sila Ke-5)",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🎨👏",
+                question: "Pada pelajaran Seni Rupa, Budi menunjukkan hasil gambar pemandangannya di depan kelas. Gambarnya sederhana tetapi dibuat dengan rapi. Sikapmu sesuai sila kelima adalah ....",
+                options: [
+                    "Memberi tepuk tangan dan memuji usaha karya Budi dengan tulus",
+                    "Mengejek gambar Budi dan mengatakan gambarmu jauh lebih bagus",
+                    "Mencoret gambar Budi saat ia kembali ke mejanya"
+                ],
+                answer: 0,
+                explanation: "Menghargai hasil karya orang lain dengan memberikan apresiasi positif adalah pengamalan sila kelima Pancasila."
+            },
+            {
+                id: 47,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Gotong Royong di Lingkungan (Sila Ke-3 & Ke-5)",
+                dimension: "Kognitif",
+                difficulty: "Mudah",
+                emoji: "🏡🤝",
+                question: "Bekerja bersama-sama membersihkan lingkungan agar pekerjaan berat terasa ringan dan cepat selesai disebut ....",
+                options: [
+                    "Gotong royong",
+                    "Permusuhan",
+                    "Persaingan"
+                ],
+                answer: 0,
+                explanation: "Gotong royong adalah budaya bangsa Indonesia yang sesuai dengan nilai persatuan dan keadilan sosial Pancasila."
+            },
+            {
+                id: 48,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Menghubungkan Perilaku dengan Lambang Sila",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "🙏⭐",
+                question: "Rani selalu berdoa sebelum tidur dan rajin beribadah bersama keluarganya. Perilaku Rani sesuai dengan sila Pancasila yang dilambangkan dengan gambar ....",
+                options: [
+                    "Bintang emas",
+                    "Kepala banteng",
+                    "Padi dan kapas"
+                ],
+                answer: 0,
+                explanation: "Rajin berdoa dan beribadah adalah pengamalan sila ke-1 yang dilambangkan dengan Bintang Emas."
+            },
+            {
+                id: 49,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Menghubungkan Musyawarah dengan Lambang Sila",
+                dimension: "Kognitif",
+                difficulty: "Menengah",
+                emoji: "🗣️🐂",
+                question: "Siswa kelas 2A berdiskusi dengan tertib untuk menentukan tujuan wisata kelas. Perilaku mereka sesuai dengan sila Pancasila yang berlambang ....",
+                options: [
+                    "Rantai emas",
+                    "Pohon beringin",
+                    "Kepala banteng"
+                ],
+                answer: 2,
+                explanation: "Berdiskusi atau bermusyawarah merupakan pengamalan sila ke-4 Pancasila yang dilambangkan dengan Kepala Banteng."
+            },
+            {
+                id: 50,
+                theme: "Aku Berperilaku Pancasila",
+                subtopic: "Menjaga Fasilitas Umum (Sila Ke-5)",
+                dimension: "Perilaku",
+                difficulty: "Menengah",
+                emoji: "🛝🌳",
+                question: "Di taman bermain dekat rumahmu ada perosotan dan bangku taman untuk semua anak. Bagaimana sikapmu yang mencerminkan sila kelima Pancasila saat bermain di sana?",
+                options: [
+                    "Ikut menjaga kebersihan taman, tidak mencoret-coret perosotan, dan bergantian memakainya",
+                    "Melarang anak lain naik perosotan karena ingin menguasainya sendiri",
+                    "Menginjak-injak bangku taman dengan sepatu yang penuh lumpur"
+                ],
+                answer: 0,
+                explanation: "Merawat fasilitas umum dan berbagi penggunaannya secara adil dengan orang lain adalah wujud pengamalan sila ke-5 Pancasila."
+            }
+        ];
+
+        /* ========================================================
+           2. AVATAR SELECTION & GAME STATE
+           ======================================================== */
+        const AVATARS = ["👦", "👧", "🧒", "🧕", "🦸‍♂️", "🦸‍♀️", "🐼", "🦁"];
+        let selectedAvatar = "👦";
+        let studentName = "Anak Hebat";
+        let soundEnabled = true;
+        let fontLarge = false;
+
+        // Active Quiz State
+        let activeQuestions = [];
+        let currentIndex = 0;
+        let userAnswers = {}; // key: questionIndex in activeQuestions -> selectedOptionIndex
+        let currentStreak = 0;
+        let currentModeTitle = "";
+
+        /* ========================================================
+           3. WEB AUDIO API SOUND SYNTHESIZER (NO EXTERNAL MP3 NEEDED)
+           ======================================================== */
+        let audioCtx = null;
+
+        function getAudioCtx() {
+            if (!audioCtx) {
+                const AudioContext = window.AudioContext || window.webkitAudioContext;
+                if (AudioContext) {
+                    audioCtx = new AudioContext();
+                }
+            }
+            if (audioCtx && audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        function playSound(type) {
+            if (!soundEnabled) return;
+            try {
+                const ctx = getAudioCtx();
+                if (!ctx) return;
+
+                const now = ctx.currentTime;
+
+                if (type === 'click') {
+                    // Cheerful bubble pop sound
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(520, now);
+                    osc.frequency.exponentialRampToValueAtTime(780, now + 0.08);
+                    gain.gain.setValueAtTime(0.18, now);
+                    gain.gain.exponentialRampToValueAtTime(0.001, now + 0.09);
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+                    osc.start(now);
+                    osc.stop(now + 0.09);
+                } else if (type === 'correct') {
+                    // Bright Ding-Dong Star Chime (C5 - E5 - G5 - C6)
+                    const notes = [523.25, 659.25, 783.99, 1046.50];
+                    notes.forEach((freq, idx) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.08);
+                        gain.gain.setValueAtTime(0.22, now + idx * 0.08);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.08 + 0.28);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + idx * 0.08);
+                        osc.stop(now + idx * 0.08 + 0.29);
+                    });
+                } else if (type === 'wrong') {
+                    // Gentle soft encouraging two-tone (E4 -> C4)
+                    const notes = [329.63, 261.63];
+                    notes.forEach((freq, idx) => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'sine';
+                        osc.frequency.setValueAtTime(freq, now + idx * 0.14);
+                        gain.gain.setValueAtTime(0.18, now + idx * 0.14);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + idx * 0.14 + 0.25);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + idx * 0.14);
+                        osc.stop(now + idx * 0.14 + 0.26);
+                    });
+                } else if (type === 'fanfare') {
+                    // Victory Trumpet Fanfare
+                    const melody = [
+                        { f: 523.25, t: 0.0, d: 0.14 },
+                        { f: 659.25, t: 0.14, d: 0.14 },
+                        { f: 783.99, t: 0.28, d: 0.14 },
+                        { f: 1046.50, t: 0.42, d: 0.30 },
+                        { f: 783.99, t: 0.72, d: 0.15 },
+                        { f: 1046.50, t: 0.88, d: 0.45 }
+                    ];
+                    melody.forEach(n => {
+                        const osc = ctx.createOscillator();
+                        const gain = ctx.createGain();
+                        osc.type = 'triangle';
+                        osc.frequency.setValueAtTime(n.f, now + n.t);
+                        gain.gain.setValueAtTime(0.24, now + n.t);
+                        gain.gain.exponentialRampToValueAtTime(0.001, now + n.t + n.d);
+                        osc.connect(gain);
+                        gain.connect(ctx.destination);
+                        osc.start(now + n.t);
+                        osc.stop(now + n.t + n.d + 0.02);
+                    });
+                }
+            } catch (e) {
+                console.warn("Web Audio API error:", e);
+            }
+        }
+
+        function toggleSound() {
+            soundEnabled = !soundEnabled;
+            document.getElementById('sound-icon').textContent = soundEnabled ? '🔊' : '🔇';
+            document.getElementById('sound-label').textContent = soundEnabled ? 'Suara ON' : 'Suara OFF';
+            if (soundEnabled) playSound('click');
+            if (!soundEnabled && 'speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+        }
+
+        function toggleFontSize() {
+            playSound('click');
+            fontLarge = !fontLarge;
+            const body = document.getElementById('app-body');
+            const label = document.getElementById('font-size-label');
+            if (fontLarge) {
+                body.classList.remove('font-scale-normal');
+                body.classList.add('font-scale-large');
+                label.textContent = 'Huruf: Ekstra Besar';
+            } else {
+                body.classList.remove('font-scale-large');
+                body.classList.add('font-scale-normal');
+                label.textContent = 'Huruf: Besar';
+            }
+        }
+
+        /* ========================================================
+           4. TEXT-TO-SPEECH (BACAKAN SOAL UNTUK ANAK KELAS 2 SD)
+           ======================================================== */
+        function readCurrentQuestionAloud() {
+            playSound('click');
+            if (!('speechSynthesis' in window)) return;
+
+            window.speechSynthesis.cancel();
+            const q = activeQuestions[currentIndex];
+            if (!q) return;
+
+            const letters = ['A', 'B', 'C'];
+            const speechText = `Soal nomor ${currentIndex + 1}. ${q.question}. Pilihan A: ${q.options[0]}. Pilihan B: ${q.options[1]}. Pilihan C: ${q.options[2]}.`;
+
+            const utter = new SpeechSynthesisUtterance(speechText);
+            utter.lang = 'id-ID';
+            utter.rate = 0.92; // Sedikit lebih pelan dan jelas untuk siswa kelas 2 SD
+            utter.pitch = 1.1;
+            window.speechSynthesis.speak(utter);
+        }
+
+        /* ========================================================
+           5. INITIALIZATION & NAVIGATION VIEWS
+           ======================================================== */
+        function initAvatarGrid() {
+            const grid = document.getElementById('avatar-grid');
+            grid.innerHTML = '';
+            AVATARS.forEach(av => {
+                const isSelected = av === selectedAvatar;
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.className = `p-2.5 sm:p-3 text-3xl sm:text-4xl rounded-2xl border-4 transition transform hover:scale-105 ${
+                    isSelected
+                        ? 'bg-amber-200 border-amber-500 shadow-md scale-105'
+                        : 'bg-white border-sky-200 hover:border-sky-400'
+                }`;
+                btn.textContent = av;
+                btn.onclick = () => {
+                    playSound('click');
+                    selectedAvatar = av;
+                    initAvatarGrid();
+                };
+                grid.appendChild(btn);
+            });
+        }
+
+        function showView(viewName) {
+            playSound('click');
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+
+            const views = ['home', 'quiz', 'result', 'teacher'];
+            views.forEach(v => {
+                document.getElementById(`view-${v}`).classList.add('hidden');
+            });
+            document.getElementById(`view-${viewName}`).classList.remove('hidden');
+
+            if (viewName === 'teacher') {
+                renderTeacherBank();
+            }
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function confirmReturnHome() {
+            const quizVisible = !document.getElementById('view-quiz').classList.contains('hidden');
+            if (quizVisible && Object.keys(userAnswers).length > 0) {
+                openModal(
+                    "🤔",
+                    "Kembali ke Menu Utama?",
+                    "Progres kuis yang sedang kamu kerjakan akan diulang. Yakin ingin kembali ke menu?",
+                    () => {
+                        closeModal();
+                        showView('home');
+                    }
+                );
+            } else {
+                showView('home');
+            }
+        }
+
+        function openModal(emoji, title, desc, onConfirm) {
+            document.getElementById('modal-emoji').textContent = emoji;
+            document.getElementById('modal-title').textContent = title;
+            document.getElementById('modal-desc').textContent = desc;
+            const confirmBtn = document.getElementById('modal-confirm-btn');
+            confirmBtn.onclick = onConfirm;
+            const modal = document.getElementById('custom-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            playSound('click');
+            const modal = document.getElementById('custom-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        /* ========================================================
+           6. GAME START & QUESTION FILTERING
+           ======================================================== */
+        function shuffleArray(arr) {
+            const copy = [...arr];
+            for (let i = copy.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [copy[i], copy[j]] = [copy[j], copy[i]];
+            }
+            return copy;
+        }
+
+        function startGame(mode) {
+            playSound('click');
+
+            // Read student name
+            const nameInput = document.getElementById('input-student-name').value.trim();
+            studentName = nameInput ? nameInput : "Anak Hebat";
+
+            // Filter by Mode
+            let pool = [...ALL_QUESTIONS];
+            if (mode === 'TOPIC_ATURAN') {
+                pool = pool.filter(q => q.theme === "Aku Patuh Aturan");
+                currentModeTitle = "Paket 1: Aku Patuh Aturan";
+            } else if (mode === 'TOPIC_PANCASILA') {
+                pool = pool.filter(q => q.theme === "Aku Berperilaku Pancasila");
+                currentModeTitle = "Paket 2: Aku Berperilaku Pancasila";
+            } else if (mode === 'QUICK_10') {
+                currentModeTitle = "Mode Kuis Kilat (10 Soal)";
+            } else {
+                currentModeTitle = "Petualangan Lengkap (50 Soal)";
+            }
+
+            // Apply optional Difficulty & Dimension filters
+            const diffFilter = document.getElementById('select-difficulty').value;
+            const dimFilter = document.getElementById('select-dimension').value;
+
+            if (diffFilter !== 'ALL') {
+                pool = pool.filter(q => q.difficulty === diffFilter);
+            }
+            if (dimFilter !== 'ALL') {
+                pool = pool.filter(q => q.dimension === dimFilter);
+            }
+
+            if (mode === 'QUICK_10') {
+                pool = shuffleArray(pool).slice(0, Math.min(10, pool.length));
+            }
+
+            activeQuestions = pool;
+            currentIndex = 0;
+            userAnswers = {};
+            currentStreak = 0;
+
+            // Update header in quiz view
+            document.getElementById('quiz-player-avatar').textContent = selectedAvatar;
+            document.getElementById('quiz-player-name').textContent = studentName;
+            document.getElementById('quiz-mode-title').textContent = `${currentModeTitle} (${activeQuestions.length} Soal)`;
+
+            showView('quiz');
+            renderCurrentQuestion();
+            updateLiveStats();
+        }
+
+        // Start a single specific question from Teacher Mode
+        function trySingleQuestionFromBank(questionId) {
+            playSound('click');
+            const targetIndex = ALL_QUESTIONS.findIndex(q => q.id === questionId);
+            activeQuestions = [...ALL_QUESTIONS];
+            currentIndex = targetIndex >= 0 ? targetIndex : 0;
+            userAnswers = {};
+            currentStreak = 0;
+            currentModeTitle = "Latihan Soal Pilihan Guru (50 Soal)";
+
+            document.getElementById('quiz-player-avatar').textContent = selectedAvatar;
+            document.getElementById('quiz-player-name').textContent = studentName;
+            document.getElementById('quiz-mode-title').textContent = currentModeTitle;
+
+            showView('quiz');
+            renderCurrentQuestion();
+            updateLiveStats();
+        }
+
+        /* ========================================================
+           7. RENDER QUESTION & HANDLE ANSWER
+           ======================================================== */
+        function renderCurrentQuestion() {
+            if ('speechSynthesis' in window) {
+                window.speechSynthesis.cancel();
+            }
+
+            const q = activeQuestions[currentIndex];
+            if (!q) return;
+
+            const total = activeQuestions.length;
+
+            // Update Progress Bar
+            document.getElementById('progress-text').textContent = `Soal ${currentIndex + 1} dari ${total} (Kode Soal #${q.id})`;
+            const answeredCount = Object.keys(userAnswers).length;
+            document.getElementById('answered-count-text').textContent = `Terjawab: ${answeredCount}/${total}`;
+            const pct = Math.max(3, Math.round(((currentIndex + 1) / total) * 100));
+            document.getElementById('progress-bar-fill').style.width = `${pct}%`;
+
+            // Update Metadata Badges
+            document.getElementById('q-badge-number').textContent = `SOAL ${currentIndex + 1}`;
+            const themeBadge = document.getElementById('q-badge-theme');
+            if (q.theme === "Aku Patuh Aturan") {
+                themeBadge.className = "bg-sky-100 border-2 border-sky-400 text-sky-900 font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm";
+                themeBadge.textContent = "🏡 Aku Patuh Aturan";
+            } else {
+                themeBadge.className = "bg-emerald-100 border-2 border-emerald-400 text-emerald-900 font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm";
+                themeBadge.textContent = "🦅 Aku Berperilaku Pancasila";
+            }
+
+            const diffBadge = document.getElementById('q-badge-difficulty');
+            if (q.difficulty === "Mudah") {
+                diffBadge.className = "bg-green-100 border-2 border-green-400 text-green-900 font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm";
+                diffBadge.textContent = "🟢 Tingkat: Mudah";
+            } else {
+                diffBadge.className = "bg-amber-100 border-2 border-amber-400 text-amber-900 font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm";
+                diffBadge.textContent = "🟡 Tingkat: Menengah";
+            }
+
+            const dimBadge = document.getElementById('q-badge-dimension');
+            if (q.dimension === "Kognitif") {
+                dimBadge.className = "bg-indigo-100 border-2 border-indigo-400 text-indigo-900 font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm";
+                dimBadge.textContent = "🧠 Kognitif (Pengetahuan)";
+            } else {
+                dimBadge.className = "bg-rose-100 border-2 border-rose-400 text-rose-900 font-extrabold px-3 py-1 rounded-full text-xs sm:text-sm";
+                dimBadge.textContent = "💖 Perilaku (Sikap Situasional)";
+            }
+
+            // Emoji, Subtopic & Question Text
+            document.getElementById('q-emoji-box').textContent = q.emoji;
+            document.getElementById('q-subtopic').textContent = `📌 ${q.subtopic}`;
+            document.getElementById('q-text').textContent = q.question;
+
+            // Render 3 Options (A, B, C)
+            const optionsContainer = document.getElementById('options-container');
+            optionsContainer.innerHTML = '';
+            const letters = ['A', 'B', 'C'];
+            const letterColors = [
+                'bg-sky-500 text-white border-sky-700',
+                'bg-amber-500 text-white border-amber-700',
+                'bg-purple-500 text-white border-purple-700'
+            ];
+
+            const alreadyAnswered = userAnswers.hasOwnProperty(currentIndex);
+            const chosenOption = userAnswers[currentIndex];
+
+            q.options.forEach((optText, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+                btn.disabled = alreadyAnswered;
+
+                let stateClasses = '';
+                let statusIcon = '';
+
+                if (alreadyAnswered) {
+                    if (idx === q.answer) {
+                        stateClasses = 'correct-choice';
+                        statusIcon = '<span class="text-2xl sm:text-3xl ml-auto shrink-0">✅</span>';
+                    } else if (idx === chosenOption && chosenOption !== q.answer) {
+                        stateClasses = 'wrong-choice';
+                        statusIcon = '<span class="text-2xl sm:text-3xl ml-auto shrink-0">❌</span>';
+                    } else {
+                        stateClasses = 'opacity-60';
+                    }
+                }
+
+                btn.className = `option-btn w-full p-4 sm:p-5 rounded-3xl text-left flex items-center gap-4 ${stateClasses}`;
+                btn.innerHTML = `
+                    <div class="w-11 h-11 sm:w-13 sm:h-13 rounded-2xl border-2 flex items-center justify-center text-xl sm:text-2xl font-black shrink-0 ${letterColors[idx]}">
+                        ${letters[idx]}
+                    </div>
+                    <span class="option-text font-extrabold text-slate-800 flex-1">${optText}</span>
+                    ${statusIcon}
+                `;
+
+                btn.onclick = () => selectAnswer(idx);
+                optionsContainer.appendChild(btn);
+            });
+
+            // Show or Hide Immediate Feedback Box
+            const feedbackBox = document.getElementById('feedback-box');
+            if (alreadyAnswered) {
+                showFeedbackBox(chosenOption === q.answer, q.explanation);
+            } else {
+                feedbackBox.classList.add('hidden');
+            }
+
+            // Prev / Next button states
+            document.getElementById('btn-prev').disabled = currentIndex === 0;
+            const nextBtn = document.getElementById('btn-next');
+            if (currentIndex === total - 1) {
+                nextBtn.innerHTML = `<span>Selesai & Rapor</span> <span>🏁</span>`;
+            } else {
+                nextBtn.innerHTML = `<span>Selanjutnya</span> <span>➡️</span>`;
+            }
+
+            // Update Question Map Grid
+            renderQuestionMapGrid();
+
+            // Auto Text-to-Speech if checked
+            const autoTts = document.getElementById('chk-auto-tts').checked;
+            if (autoTts && !alreadyAnswered) {
+                setTimeout(() => readCurrentQuestionAloud(), 250);
+            }
+        }
+
+        function selectAnswer(selectedIdx) {
+            if (userAnswers.hasOwnProperty(currentIndex)) return;
+
+            const q = activeQuestions[currentIndex];
+            userAnswers[currentIndex] = selectedIdx;
+
+            const isCorrect = selectedIdx === q.answer;
+            if (isCorrect) {
+                playSound('correct');
+                currentStreak++;
+            } else {
+                playSound('wrong');
+                currentStreak = 0;
+            }
+
+            updateLiveStats();
+            renderCurrentQuestion();
+        }
+
+        function showFeedbackBox(isCorrect, explanation) {
+            const box = document.getElementById('feedback-box');
+            const icon = document.getElementById('feedback-icon');
+            const title = document.getElementById('feedback-title');
+            const exp = document.getElementById('feedback-explanation');
+            const nextAfterBtn = document.getElementById('btn-next-after-feedback');
+
+            box.classList.remove('hidden', 'bg-emerald-50', 'border-emerald-400', 'text-emerald-950', 'bg-rose-50', 'border-rose-400', 'text-rose-950');
+
+            if (isCorrect) {
+                box.classList.add('bg-emerald-50', 'border-emerald-400', 'text-emerald-950');
+                icon.textContent = '🌟';
+                const praises = [
+                    `Hebat Sekali, ${studentName}! Jawabanmu Benar!`,
+                    `Luar Biasa, ${studentName}! Kamu Anak Pancasila Teladan!`,
+                    `Seratus Untukmu, ${studentName}! Tepat Sekali!`
+                ];
+                title.textContent = praises[currentIndex % praises.length];
+            } else {
+                box.classList.add('bg-rose-50', 'border-rose-400', 'text-rose-950');
+                icon.textContent = '💡';
+                title.textContent = `Tetap Semangat, ${studentName}! Yuk, Kita Pelajari Bersama:`;
+            }
+
+            exp.textContent = explanation;
+
+            if (currentIndex === activeQuestions.length - 1) {
+                nextAfterBtn.innerHTML = `<span>Lihat Rapor Hasil</span> <span>🏆</span>`;
+            } else {
+                nextAfterBtn.innerHTML = `<span>Soal Berikutnya</span> <span>➡️</span>`;
+            }
+        }
+
+        function updateLiveStats() {
+            let correctCount = 0;
+            Object.keys(userAnswers).forEach(qIdx => {
+                const q = activeQuestions[qIdx];
+                if (q && userAnswers[qIdx] === q.answer) {
+                    correctCount++;
+                }
+            });
+
+            const total = activeQuestions.length || 1;
+            const liveScore = Math.round((correctCount / total) * 100);
+
+            document.getElementById('quiz-stars').textContent = correctCount;
+            document.getElementById('quiz-score').textContent = liveScore;
+
+            const streakBadge = document.getElementById('streak-badge');
+            if (currentStreak >= 2) {
+                streakBadge.classList.remove('hidden');
+                document.getElementById('streak-count').textContent = currentStreak;
+            } else {
+                streakBadge.classList.add('hidden');
+            }
+        }
+
+        function prevQuestion() {
+            if (currentIndex > 0) {
+                playSound('click');
+                currentIndex--;
+                renderCurrentQuestion();
+            }
+        }
+
+        function nextQuestion() {
+            playSound('click');
+            if (currentIndex < activeQuestions.length - 1) {
+                currentIndex++;
+                renderCurrentQuestion();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            } else {
+                finishQuizNow();
+            }
+        }
+
+        function toggleQuestionMap() {
+            playSound('click');
+            const drawer = document.getElementById('question-map-drawer');
+            drawer.classList.toggle('hidden');
+            renderQuestionMapGrid();
+        }
+
+        function renderQuestionMapGrid() {
+            const grid = document.getElementById('question-map-grid');
+            if (!grid) return;
+            grid.innerHTML = '';
+
+            activeQuestions.forEach((q, idx) => {
+                const btn = document.createElement('button');
+                btn.type = 'button';
+
+                let bgClass = 'bg-slate-100 border-slate-300 text-slate-700';
+                if (userAnswers.hasOwnProperty(idx)) {
+                    if (userAnswers[idx] === q.answer) {
+                        bgClass = 'bg-emerald-400 border-emerald-600 text-emerald-950';
+                    } else {
+                        bgClass = 'bg-rose-400 border-rose-600 text-white';
+                    }
+                }
+                if (idx === currentIndex) {
+                    bgClass += ' ring-4 ring-amber-400 scale-105';
+                }
+
+                btn.className = `py-2 rounded-xl border-2 font-black text-sm transition ${bgClass}`;
+                btn.textContent = idx + 1;
+                btn.onclick = () => {
+                    playSound('click');
+                    currentIndex = idx;
+                    renderCurrentQuestion();
+                };
+                grid.appendChild(btn);
+            });
+        }
+
+        /* ========================================================
+           8. FINISH QUIZ & CHARACTER REPORT ANALYTICS
+           ======================================================== */
+        function finishQuizNow() {
+            const answeredCount = Object.keys(userAnswers).length;
+            const total = activeQuestions.length;
+
+            if (answeredCount < total) {
+                openModal(
+                    "📝",
+                    "Masih Ada Soal yang Belum Dijawab!",
+                    `Kamu baru menjawab ${answeredCount} dari ${total} soal. Yakin ingin melihat rapor hasil sekarang?`,
+                    () => {
+                        closeModal();
+                        showFinalReport();
+                    }
+                );
+            } else {
+                showFinalReport();
+            }
+        }
+
+        function showFinalReport() {
+            showView('result');
+            playSound('fanfare');
+
+            const total = activeQuestions.length || 1;
+            let correct = 0;
+            let wrong = 0;
+
+            // Breakdown counters
+            let kogTotal = 0, kogCorrect = 0;
+            let perTotal = 0, perCorrect = 0;
+            let mudTotal = 0, mudCorrect = 0;
+            let menTotal = 0, menCorrect = 0;
+
+            activeQuestions.forEach((q, idx) => {
+                if (q.dimension === "Kognitif") kogTotal++;
+                else perTotal++;
+
+                if (q.difficulty === "Mudah") mudTotal++;
+                else menTotal++;
+
+                if (userAnswers.hasOwnProperty(idx)) {
+                    if (userAnswers[idx] === q.answer) {
+                        correct++;
+                        if (q.dimension === "Kognitif") kogCorrect++;
+                        else perCorrect++;
+
+                        if (q.difficulty === "Mudah") mudCorrect++;
+                        else menCorrect++;
+                    } else {
+                        wrong++;
+                    }
+                } else {
+                    wrong++;
+                }
+            });
+
+            const finalScore = Math.round((correct / total) * 100);
+
+            document.getElementById('result-greeting').textContent = `Selamat, ${selectedAvatar} ${studentName}!`;
+            document.getElementById('res-final-score').textContent = finalScore;
+            document.getElementById('res-correct-count').textContent = correct;
+            document.getElementById('res-wrong-count').textContent = wrong;
+            document.getElementById('res-total-count').textContent = `${Object.keys(userAnswers).length}/${total}`;
+
+            // Predicate & Star Rating
+            const predEl = document.getElementById('result-predicate');
+            const starsRow = document.getElementById('result-stars-row');
+            const trophyEl = document.getElementById('result-trophy');
+
+            if (finalScore >= 90) {
+                trophyEl.textContent = "🏆";
+                predEl.textContent = "🌟 Predikat: Duta Anak Pancasila Teladan (Sangat Baik)! 🌟";
+                starsRow.textContent = "⭐ ⭐ ⭐ ⭐ ⭐";
+            } else if (finalScore >= 75) {
+                trophyEl.textContent = "🥇";
+                predEl.textContent = "👏 Predikat: Anak Tertib & Berperilaku Pancasila (Baik)!";
+                starsRow.textContent = "⭐ ⭐ ⭐ ⭐";
+            } else if (finalScore >= 60) {
+                trophyEl.textContent = "🎖️";
+                predEl.textContent = "💪 Predikat: Anak Hebat Sedang Berkembang (Cukup Baik)!";
+                starsRow.textContent = "⭐ ⭐ ⭐";
+            } else {
+                trophyEl.textContent = "🌱";
+                predEl.textContent = "🌈 Ayo Belajar Lagi Bersama! Kamu Pasti Bisa!";
+                starsRow.textContent = "⭐ ⭐";
+            }
+
+            // Update Dimension & Difficulty Progress Bars
+            const kogPct = kogTotal > 0 ? Math.round((kogCorrect / kogTotal) * 100) : 0;
+            const perPct = perTotal > 0 ? Math.round((perCorrect / perTotal) * 100) : 0;
+            const mudPct = mudTotal > 0 ? Math.round((mudCorrect / mudTotal) * 100) : 0;
+            const menPct = menTotal > 0 ? Math.round((menCorrect / menTotal) * 100) : 0;
+
+            document.getElementById('stat-kognitif-text').textContent = `${kogCorrect}/${kogTotal} (${kogPct}%)`;
+            document.getElementById('stat-kognitif-bar').style.width = `${kogPct}%`;
+
+            document.getElementById('stat-perilaku-text').textContent = `${perCorrect}/${perTotal} (${perPct}%)`;
+            document.getElementById('stat-perilaku-bar').style.width = `${perPct}%`;
+
+            document.getElementById('stat-mudah-text').textContent = `${mudCorrect}/${mudTotal} (${mudPct}%)`;
+            document.getElementById('stat-mudah-bar').style.width = `${mudPct}%`;
+
+            document.getElementById('stat-menengah-text').textContent = `${menCorrect}/${menTotal} (${menPct}%)`;
+            document.getElementById('stat-menengah-bar').style.width = `${menPct}%`;
+
+            // Render Review List
+            const reviewContainer = document.getElementById('result-review-list');
+            reviewContainer.innerHTML = '';
+            const letters = ['A', 'B', 'C'];
+
+            activeQuestions.forEach((q, idx) => {
+                const answered = userAnswers.hasOwnProperty(idx);
+                const userChoice = userAnswers[idx];
+                const isCorrect = answered && userChoice === q.answer;
+
+                const item = document.createElement('div');
+                item.className = `p-4 rounded-2xl border-3 ${
+                    isCorrect ? 'bg-emerald-50 border-emerald-300' : 'bg-rose-50 border-rose-300'
+                }`;
+
+                const userChoiceText = answered
+                    ? `${letters[userChoice]}. ${q.options[userChoice]}`
+                    : 'Belum dijawab';
+
+                item.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-1.5">
+                        <div class="flex items-center gap-2">
+                            <span class="font-black text-sm px-2.5 py-0.5 rounded-full ${isCorrect ? 'bg-emerald-600 text-white' : 'bg-rose-600 text-white'}">
+                                ${isCorrect ? '✅ BENAR' : '❌ BELUM TEPAT'} • Soal ${idx + 1}
+                            </span>
+                            <span class="text-xs font-extrabold text-slate-600">${q.theme} • ${q.dimension} • ${q.difficulty}</span>
+                        </div>
+                    </div>
+                    <p class="font-extrabold text-base sm:text-lg text-slate-800 mb-2">${q.emoji} ${q.question}</p>
+                    <div class="text-sm sm:text-base font-bold space-y-1">
+                        <div class="${isCorrect ? 'text-emerald-800' : 'text-rose-800'}">
+                            Jawabanmu: <span class="underline">${userChoiceText}</span>
+                        </div>
+                        ${!isCorrect ? `<div class="text-emerald-800">Kunci Jawaban: <span>${letters[q.answer]}. ${q.options[q.answer]}</span></div>` : ''}
+                        <div class="text-slate-600 bg-white/80 p-2.5 rounded-xl mt-1.5 border border-slate-200">
+                            💡 <strong>Pesan Karakter:</strong> ${q.explanation}
+                        </div>
+                    </div>
+                `;
+                reviewContainer.appendChild(item);
+            });
+        }
+
+        function copyResultSummary() {
+            playSound('click');
+            const score = document.getElementById('res-final-score').textContent;
+            const correct = document.getElementById('res-correct-count').textContent;
+            const kog = document.getElementById('stat-kognitif-text').textContent;
+            const per = document.getElementById('stat-perilaku-text').textContent;
+
+            const textToCopy = `RAPOR KUIS PENDIDIKAN PANCASILA KELAS 2 SD (KURIKULUM MERDEKA)\nNama Siswa: ${studentName} ${selectedAvatar}\nPaket: ${currentModeTitle}\nSkor Akhir: ${score}/100 (Benar: ${correct} dari ${activeQuestions.length} soal)\nCapaian Kognitif: ${kog}\nCapaian Perilaku: ${per}`;
+
+            const tempArea = document.createElement('textarea');
+            tempArea.value = textToCopy;
+            document.body.appendChild(tempArea);
+            tempArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(tempArea);
+
+            const btnText = document.getElementById('btn-copy-report-text');
+            btnText.textContent = "✅ Rapor Berhasil Disalin!";
+            setTimeout(() => {
+                btnText.textContent = "Salin Rapor Hasil untuk Guru/Orang Tua";
+            }, 2500);
+        }
+
+        /* ========================================================
+           9. TEACHER MODE: RENDER ALL 50 QUESTIONS & BLUEPRINT
+           ======================================================== */
+        function renderTeacherBank() {
+            const searchVal = (document.getElementById('teacher-search').value || '').toLowerCase();
+            const themeVal = document.getElementById('teacher-filter-theme').value;
+            const diffVal = document.getElementById('teacher-filter-diff').value;
+            const dimVal = document.getElementById('teacher-filter-dim').value;
+
+            const filtered = ALL_QUESTIONS.filter(q => {
+                const matchSearch =
+                    q.question.toLowerCase().includes(searchVal) ||
+                    q.subtopic.toLowerCase().includes(searchVal) ||
+                    q.explanation.toLowerCase().includes(searchVal);
+                const matchTheme = themeVal === 'ALL' || q.theme === themeVal;
+                const matchDiff = diffVal === 'ALL' || q.difficulty === diffVal;
+                const matchDim = dimVal === 'ALL' || q.dimension === dimVal;
+                return matchSearch && matchTheme && matchDiff && matchDim;
+            });
+
+            document.getElementById('teacher-count-label').textContent = `Menampilkan ${filtered.length} dari ${ALL_QUESTIONS.length} soal`;
+
+            const listEl = document.getElementById('teacher-questions-list');
+            listEl.innerHTML = '';
+            const letters = ['A', 'B', 'C'];
+
+            filtered.forEach(q => {
+                const card = document.createElement('div');
+                card.className = 'bg-white border-3 border-slate-200 hover:border-sky-400 rounded-2xl p-4 sm:p-5 shadow-sm transition';
+
+                const optionsHtml = q.options.map((opt, idx) => {
+                    const isAns = idx === q.answer;
+                    return `
+                        <div class="px-3 py-2 rounded-xl border-2 text-sm sm:text-base font-bold flex items-center gap-2 ${
+                            isAns ? 'bg-emerald-50 border-emerald-400 text-emerald-950' : 'bg-slate-50 border-slate-200 text-slate-700'
+                        }">
+                            <span class="font-black">${letters[idx]}.</span>
+                            <span class="flex-1">${opt}</span>
+                            ${isAns ? '<span class="bg-emerald-600 text-white text-xs px-2 py-0.5 rounded-full font-extrabold">KUNCI</span>' : ''}
+                        </div>
+                    `;
+                }).join('');
+
+                card.innerHTML = `
+                    <div class="flex flex-wrap items-center justify-between gap-2 mb-2">
+                        <div class="flex flex-wrap items-center gap-1.5">
+                            <span class="bg-sky-700 text-white font-black text-xs sm:text-sm px-3 py-0.5 rounded-full">
+                                NO. ${q.id}
+                            </span>
+                            <span class="bg-sky-100 text-sky-900 font-extrabold text-xs px-2.5 py-0.5 rounded-full">
+                                ${q.theme}
+                            </span>
+                            <span class="font-extrabold text-xs px-2.5 py-0.5 rounded-full ${
+                                q.difficulty === 'Mudah' ? 'bg-green-100 text-green-900' : 'bg-amber-100 text-amber-900'
+                            }">
+                                ${q.difficulty === 'Mudah' ? '🟢 Mudah' : '🟡 Menengah'}
+                            </span>
+                            <span class="font-extrabold text-xs px-2.5 py-0.5 rounded-full ${
+                                q.dimension === 'Kognitif' ? 'bg-indigo-100 text-indigo-900' : 'bg-rose-100 text-rose-900'
+                            }">
+                                ${q.dimension === 'Kognitif' ? '🧠 Kognitif' : '💖 Perilaku (Sikap)'}
+                            </span>
+                            <span class="text-xs font-bold text-slate-500">• ${q.subtopic}</span>
+                        </div>
+                        <button onclick="trySingleQuestionFromBank(${q.id})" class="px-3 py-1 bg-amber-300 hover:bg-amber-400 text-amber-950 font-extrabold text-xs sm:text-sm rounded-xl border-2 border-amber-500 transition">
+                            🎯 Coba Soal Ini
+                        </button>
+                    </div>
+                    <p class="text-base sm:text-xl font-extrabold text-slate-800 my-2.5">
+                        <span class="text-2xl mr-1">${q.emoji}</span> ${q.question}
+                    </p>
+                    <div class="grid grid-cols-1 gap-2 my-3">
+                        ${optionsHtml}
+                    </div>
+                    <div class="bg-amber-50 border-2 border-amber-200 rounded-xl p-2.5 text-xs sm:text-sm font-bold text-amber-950">
+                        💡 <strong>Pembahasan & Umpan Balik Karakter:</strong> ${q.explanation}
+                    </div>
+                `;
+                listEl.appendChild(card);
+            });
+        }
+
+        // Start up on window load
+        window.onload = function () {
+            initAvatarGrid();
+        };
+    </script>
+</body>
+</html>
